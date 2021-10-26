@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class Task2 extends AbstractTest {
+public class Task2Test extends AbstractTest {
 
 	@Test
 	public void test(){
@@ -22,7 +22,7 @@ public class Task2 extends AbstractTest {
 
 		searchField.sendKeys("banana" + Keys.ENTER);
 // TODO: 10/24/2021 не всегда вводит слово banan, если почистить с помощью clean - работает, и то не всегда. В режиме дебага - тест работает
-
+// TODO: 10/24/2021 Не могу запустить через test maven один класс, только все, в чем причина ?
 
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
 		jse.executeScript("window.scrollBy(0,1000)");

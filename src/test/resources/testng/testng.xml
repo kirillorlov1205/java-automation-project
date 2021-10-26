@@ -3,7 +3,7 @@
 <suite name="Test suite">
     <test name="Test">
         <packages>
-            <package name ="com.stormnet.tests.lesson23.TaskFromDoc"/>
+            <package name ="com.stormnet.tests.Main.*"/>
         </packages>
     </test>
 </suite>
