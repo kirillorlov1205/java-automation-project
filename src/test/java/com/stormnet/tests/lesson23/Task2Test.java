@@ -21,8 +21,8 @@ public class Task2Test extends AbstractTest {
 		searchField.click();
 
 		searchField.sendKeys("banana" + Keys.ENTER);
-// TODO: 10/24/2021 не всегда вводит слово banan, если почистить с помощью clean - работает, и то не всегда. В режиме дебага - тест работает
-// TODO: 10/24/2021 Не могу запустить через test maven один класс, только все, в чем причина ?
+// TODO: 10/24/2021 не всегда вводит слово banan, если почистить с
+//  помощью clean - работает, и то не всегда. В режиме дебага - тест работает
 
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
 		jse.executeScript("window.scrollBy(0,1000)");
@@ -38,3 +38,4 @@ public class Task2Test extends AbstractTest {
 		Assert.assertEquals(windowTitle, "Minions Banana Song Full Song) - YouTube","Title of the page doesnt match");
 	}
 }
+

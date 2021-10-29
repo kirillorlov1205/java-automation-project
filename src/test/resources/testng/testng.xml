@@ -2,8 +2,8 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="Test suite">
     <test name="Test">
-        <packages>
-            <package name ="com.stormnet.tests.Main.*"/>
-        </packages>
+        <classes>
+                    <class name="com.stormnet.tests.lesson23.Task1Test"/>
+        </classes>
     </test>
 </suite>
