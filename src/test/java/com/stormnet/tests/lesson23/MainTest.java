@@ -1,9 +1,8 @@
-package com.stormnet.tests.Main;
+package com.stormnet.tests.lesson23;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.List;
@@ -18,8 +17,7 @@ public class MainTest extends AbstractTest {
 		searchField.sendKeys("banana" + Keys.ENTER);
 
 		List<WebElement> searchResults = driver.findElements(By.xpath("//div[@class=\"yuRUbf\"]/a"));
-		WebElement element = searchResults.get(2);
+		WebElement element = searchResults.get(0);
 		element.click();
-// TODO: 10/26/2021 как описать тест, чтобы проверить, что открылась именно третья страница из списка ?
 	}
 }

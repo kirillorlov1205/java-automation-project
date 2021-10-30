@@ -15,6 +15,6 @@ public class Task1Test extends AbstractTest {
 		element.sendKeys("banana", Keys.ENTER);
 
 		String windowTitle = driver.getTitle();
-		Assert.assertEquals(windowTitle, "Поиск «banana» — Википедия","No");
+		Assert.assertEquals(windowTitle, "Поик «banana» — Википедия","No");
 	}
 }
