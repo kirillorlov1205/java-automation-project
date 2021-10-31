@@ -1,5 +1,6 @@
-package com.stormnet.kufar;
+package com.stormnet.kufar.page_wrappers.loginPage;
 
+import com.stormnet.kufar.ProductsPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,7 +8,7 @@ import org.openqa.selenium.WebElement;
 public class LoginForm {
 	private static final By USER_NAME_FIELD_LOCATOR = By.id("email");
 	private static final By USER_PASSWORD_FIELD_LOCATOR = By.id("password");
-	private static final By LOGIN_SUBMIT_BUTTON = By.xpath("//button[@type=\"submit\"");
+	private static final By LOGIN_SUBMIT_BUTTON = By.xpath("//div[@data-name=\"login_submit\"]//button[@type=\"submit\"]");
 
 	private final WebDriver driver;
 
@@ -26,4 +27,6 @@ public class LoginForm {
 	public WebElement getSubmitButton() {
 		return driver.findElement(LOGIN_SUBMIT_BUTTON);
 	}
+
+
 }
