@@ -11,7 +11,7 @@ public class LoginFormActions {
 		this.driver = driver;
 	}
 
-	//region Actions
+
 	public  LoginFormActions fillUserName(String username){
 		new LoginForm(driver).getUserNameField().sendKeys("username");
 		return this;

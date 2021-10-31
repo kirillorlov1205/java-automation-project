@@ -34,6 +34,4 @@ public class AbstractTest {
 	public byte[] takeScreenshotAs() {
 		return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
 	}
-
-
 }
