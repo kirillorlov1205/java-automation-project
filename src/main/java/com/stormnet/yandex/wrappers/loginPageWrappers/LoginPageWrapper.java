@@ -1,10 +1,10 @@
-package com.stormnet.yandex.loginPageWrappers;
+package com.stormnet.yandex.wrappers.loginPageWrappers;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class LoginPage {
+public class LoginPageWrapper {
 	private static final By USER_ID_FIELD_LOCATOR = By.id("passp-field-login");
 	private static final By LOGIN_SUBMIT_FIELD_LOCATOR = By.id("passp:sign-in");
 	private static final By USER_PASSWORD_FIELD_LOCATOR = By.id("passp-field-passwd");
@@ -12,7 +12,7 @@ public class LoginPage {
 
 	private final WebDriver driver;
 
-	public LoginPage(WebDriver driver) {
+	public LoginPageWrapper(WebDriver driver) {
 		this.driver = driver;
 	}
 

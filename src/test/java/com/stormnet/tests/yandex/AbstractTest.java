@@ -1,4 +1,4 @@
-package com.stormnet.tests.yandex.loginPageTest;
+package com.stormnet.tests.yandex;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Allure;

@@ -19,7 +19,5 @@ public class LoginTest extends AbstractTest {
 		ProductsPage productsPage = new LoginFormActions(driver).fillUserName("Kirillorlov1205@gmail.com")
 				.fillPassword("Kirillorlov1997")
 				.submitForm();
-
-		productsPage.waitUntilOpened();
 	}
 }

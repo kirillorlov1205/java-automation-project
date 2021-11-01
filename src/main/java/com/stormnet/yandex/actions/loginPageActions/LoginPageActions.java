@@ -1,7 +1,6 @@
-package com.stormnet.yandex.loginPageActions;
+package com.stormnet.yandex.actions.loginPageActions;
 
-import com.stormnet.kufar.ProductsPage;
-import com.stormnet.yandex.loginPageWrappers.LoginPage;
+import com.stormnet.yandex.wrappers.loginPageWrappers.LoginPageWrapper;
 import org.openqa.selenium.WebDriver;
 
 public class LoginPageActions {
@@ -13,24 +12,24 @@ public class LoginPageActions {
 	}
 
 	public LoginPageActions fillUserId(String username) {
-		new LoginPage(driver).getUserIdFieldLocator().sendKeys(username);
+		new LoginPageWrapper(driver).getUserIdFieldLocator().sendKeys(username);
 		return this;
 	}
 
 	public LoginPageActions fillUserPassword(String password) {
-		new LoginPage(driver).getUserPasswordFieldLocator().sendKeys(password);
+		new LoginPageWrapper(driver).getUserPasswordFieldLocator().sendKeys(password);
 		return this;
 	}
 
 	public LoginPageActions submitForm(){
-		new LoginPage(driver).getLoginSubmitButton().click();
+		new LoginPageWrapper(driver).getLoginSubmitButton().click();
 		return this;
 	}
 
 	public LoginPageActions loginWithCreds(String userName, String password){
 		fillUserId(userName);
 		fillUserPassword(password);
-		new LoginPage(driver).getLoginSubmitButton().click();
+		new LoginPageWrapper(driver).getLoginSubmitButton().click();
 		return this;
 	}
 
