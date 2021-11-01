@@ -1,4 +1,4 @@
-package com.stormnet.yandex.wrappers.mailPageWrappers;
+package com.stormnet.yandex.framework.pageWrappers.mailPageWrappers;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
