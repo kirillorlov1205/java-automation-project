@@ -1,13 +1,12 @@
 package com.stormnet.yandex.framework.driver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.checkerframework.checker.guieffect.qual.UI;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class UIDriver {
-	private WebDriver driver;
-	private static UIDriver instance;
+	private static ThreadLocal<UIDriver> instance = new ThreadLocal<>();
+	private final WebDriver driver;
 
 	public UIDriver() {
 		WebDriverManager.chromedriver().setup();
@@ -15,14 +14,15 @@ public class UIDriver {
 	}
 
 	public static UIDriver getDriver() {
-		if(instance == null){
-			instance = new UIDriver();
+		if(instance.get() == null){
+			instance.set(new UIDriver());
 		}
-		return instance;
+		return instance.get();
 	}
 
 	public static void closeDriver(){
-		instance = null;
+		instance.get().driver.quit();
+		instance.set(null);
 	}
 }
 
