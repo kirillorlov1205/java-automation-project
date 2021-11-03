@@ -15,7 +15,7 @@ public class AbstractTest {
 
 	@BeforeMethod
 	public void setup() {
-		UIDriver driver = UIDriver.getDriver();
+
 	}
 
 	@AfterMethod

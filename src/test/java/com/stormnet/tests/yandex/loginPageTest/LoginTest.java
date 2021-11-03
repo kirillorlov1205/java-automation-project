@@ -13,12 +13,12 @@ public class LoginTest extends AbstractTest {
 
 	@Test(testName = "Login to the system")
 	public void LoginTestRightCredentials() {
-		LoginPageWrapper loginPageWrapper = new LoginPageWrapper();
-		LoginPageActions LoginPageActions = new LoginPageActions(driver);
+		LoginPageActions LoginPageActions = new LoginPageActions();
+
 		LoginPageActions.loginWithCreds("+375298812241", "Kirillorlov1997");
 
-		MailPageWrapper mailPageWrapper = new MailPageWrapper(driver);
-		MailPageActions mailPageActions = new MailPageActions(driver);
+		MailPageWrapper mailPageWrapper = new MailPageWrapper(UIDriver.getDriver());
+		MailPageActions mailPageActions = new MailPageActions(UIDriver.getDriver());
 
 		mailPageWrapper.getWriteMailButton().click();
 

@@ -13,16 +13,17 @@ public class UIDriver {
 		this.driver = new ChromeDriver();
 	}
 
-	public static UIDriver getDriver() {
-		if(instance.get() == null){
+	public static WebDriver getDriver() {
+		if (instance.get() == null) {
 			instance.set(new UIDriver());
 		}
-		return instance.get();
+		return instance.get().driver;
 	}
 
-	public static void closeDriver(){
-		instance.get().driver.quit();
+	public static void closeDriver() {
+		getDriver().quit();
 		instance.set(null);
 	}
+
 }
 
