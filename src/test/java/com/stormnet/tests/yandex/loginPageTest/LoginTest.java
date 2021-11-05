@@ -3,6 +3,7 @@ package com.stormnet.tests.yandex.loginPageTest;
 
 import com.stormnet.tests.yandex.AbstractTest;
 import com.stormnet.yandex.framework.actions.loginPageActions.LoginPageActions;
+import com.stormnet.yandex.framework.actions.mailPageActions.MailFormActions;
 import com.stormnet.yandex.framework.actions.mailPageActions.MailPageActions;
 import com.stormnet.yandex.framework.driver.UIDriver;
 import com.stormnet.yandex.framework.pageWrappers.loginPageWrappers.LoginPageWrapper;
@@ -13,18 +14,13 @@ public class LoginTest extends AbstractTest {
 
 	@Test(testName = "Login to the system")
 	public void LoginTestRightCredentials() {
-		LoginPageActions LoginPageActions = new LoginPageActions();
-
 		LoginPageActions.loginWithCreds("+375298812241", "Kirillorlov1997");
 
-		MailPageWrapper mailPageWrapper = new MailPageWrapper(UIDriver.getDriver());
-		MailPageActions mailPageActions = new MailPageActions(UIDriver.getDriver());
+		MailPageWrapper.getWriteMailButton().click();
 
-		mailPageWrapper.getWriteMailButton().click();
+		MailFormActions.fillRecipientField("orlovkirilltest1205@yandex.by");
+		MailFormActions.fillTopicField("Hello");
 
-//		MailFormActions mailFormActions = new MailFormActions(driver);
-//
-//		mailFormActions.fillTopicField("Hello");
 
 //		mailFormActions.fillRecipientField("kirillorlov1205@yandex.ru");
 
