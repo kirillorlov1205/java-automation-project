@@ -1,8 +1,8 @@
-package com.stormnet.yandex.framework.actions.loginPageActions;
+package com.stormnet.yandex.framework.actions;
 
-import com.stormnet.yandex.framework.actions.mailPageActions.MailPageActions;
-import com.stormnet.yandex.framework.driver.UIDriver;
-import com.stormnet.yandex.framework.pageWrappers.loginPageWrappers.LoginPageWrapper;
+import com.stormnet.yandex.framework.actions.mailActions.MailPageActions;
+import com.stormnet.yandex.framework.driver.UiDriver;
+import com.stormnet.yandex.framework.pageWrappers.LoginPageWrapper;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -11,7 +11,7 @@ public class LoginPageActions {
 
 	@Step("Open Login Page")
 	public static void openLoginPage() {
-		UIDriver.getDriver().get("https://mail.yandex.com/");
+		UiDriver.getDriver().get("https://mail.yandex.com/");
 	}
 
 	@Step("")
@@ -49,7 +49,7 @@ public class LoginPageActions {
 
 	@Step("Waiting till username form closed")
 	public static void waitUsernameFormClosed() {
-		WebDriverWait wait = new WebDriverWait(UIDriver.getDriver(), 5);
+		WebDriverWait wait = new WebDriverWait(UiDriver.getDriver(), 5);
 		wait.withMessage("ID field hasn't disappear")
 				.until(ExpectedConditions.invisibilityOf(LoginPageWrapper
 						.getUserIdFieldLocator().getElement()));

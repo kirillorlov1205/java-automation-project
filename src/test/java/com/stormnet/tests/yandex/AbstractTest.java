@@ -1,6 +1,6 @@
 package com.stormnet.tests.yandex;
 
-import com.stormnet.yandex.framework.driver.UIDriver;
+import com.stormnet.yandex.framework.driver.UiDriver;
 import io.qameta.allure.Allure;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -11,7 +11,7 @@ import org.testng.annotations.BeforeMethod;
 import java.io.ByteArrayInputStream;
 
 public class AbstractTest {
-	protected UIDriver driver;
+	protected UiDriver driver;
 
 	@BeforeMethod
 	public void setup() {
@@ -23,7 +23,7 @@ public class AbstractTest {
 		if (!result.isSuccess()) {
 			Allure.attachment("attachment2.png", new ByteArrayInputStream(takeScreenshotAs()));
 		}
-		UIDriver.closeDriver();
+		UiDriver.closeDriver();
 	}
 
 	private byte[] takeScreenshotAs() {

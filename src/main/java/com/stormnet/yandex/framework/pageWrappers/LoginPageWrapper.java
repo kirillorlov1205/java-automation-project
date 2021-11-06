@@ -1,6 +1,6 @@
-package com.stormnet.yandex.framework.pageWrappers.loginPageWrappers;
+package com.stormnet.yandex.framework.pageWrappers;
 
-import com.stormnet.yandex.framework.driver.UIDriver;
+import com.stormnet.yandex.framework.driver.UiDriver;
 import com.stormnet.yandex.framework.elements.Button;
 import com.stormnet.yandex.framework.elements.Input;
 import org.openqa.selenium.By;
@@ -13,19 +13,19 @@ public class LoginPageWrapper {
 
 
 	public static Button getUserLoginButton() {
-		return new Button(UIDriver.getDriver(), LOGIN_BUTTON);
+		return new Button(UiDriver.getDriver(), LOGIN_BUTTON);
 	}
 
 	public static Input getUserIdFieldLocator() {
-		return new Input(UIDriver.getDriver(), USER_ID_FIELD_LOCATOR);
+		return new Input(UiDriver.getDriver(), USER_ID_FIELD_LOCATOR);
 	}
 
 	public static Input getUserPasswordFieldLocator() {
-		return new Input(UIDriver.getDriver(), USER_PASSWORD_FIELD_LOCATOR);
+		return new Input(UiDriver.getDriver(), USER_PASSWORD_FIELD_LOCATOR);
 	}
 
 	public static Button getLoginSubmitButton() {
-		return new Button(UIDriver.getDriver(), LOGIN_SUBMIT_BUTTON);
+		return new Button(UiDriver.getDriver(), LOGIN_SUBMIT_BUTTON);
 	}
 
 }
