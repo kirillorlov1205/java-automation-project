@@ -11,8 +11,14 @@ public class LoginPageActions {
 
 	@Step("Open Login Page")
 	public static void openLoginPage() {
-		UIDriver.getDriver().get("https://passport.yandex.by/auth?from=mail&origin=hostroot_homer_auth_L_by&retpath=https%3A%2F%2Fmail.yandex.by%2F&backpath=https%3A%2F%2Fmail.yandex.by%3Fnoretpath%3D1/");
+		UIDriver.getDriver().get("https://mail.yandex.com/");
 	}
+
+	@Step("")
+	public static void clickOnLoginButton() {
+		LoginPageWrapper.getUserLoginButton().click();
+	}
+
 
 	@Step("Fill user ID field")
 	public static void fillUserId(String username) {
@@ -32,6 +38,7 @@ public class LoginPageActions {
 	@Step("Login with credentials")
 	public static void loginWithCreds(String userName, String password) {
 		openLoginPage();
+		clickOnLoginButton();
 		fillUserId(userName);
 		LoginPageWrapper.getLoginSubmitButton().click();
 		waitUsernameFormClosed();
