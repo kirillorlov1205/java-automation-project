@@ -15,4 +15,7 @@ public class DiskPageWrapper {
 	public static Button getFilesButton() {
 		return new Button(UiDriver.getDriver(), FILES_BUTTON_LOCATOR);
 	}
+
+
+
 }

@@ -1,29 +1,36 @@
 package com.stormnet.yandex.framework.actions.diskActions;
 
+import com.stormnet.yandex.framework.actions.MovingPopUpActions;
+import com.stormnet.yandex.framework.driver.UiDriver;
+import com.stormnet.yandex.framework.elements.HtmlElement;
 import com.stormnet.yandex.framework.pageWrappers.diskWrappers.DiskPageWrapper;
 import com.stormnet.yandex.framework.pageWrappers.LoginPageWrapper;
+import com.stormnet.yandex.framework.pageWrappers.diskWrappers.DownloadsPageWrapper;
 import io.qameta.allure.Step;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 public class DiskPageActions {
 
 	@Step("Open Downloads Page")
 	public static void openDownloadsPage() {
 		DiskPageWrapper.getDownloadsButton().click();
+		DownloadsPageActions.waitTillDownloadsPageOpened();
 	}
 
-	@Step("")
-	public static void clickOnLoginButton() {
-		LoginPageWrapper.getUserLoginButton().click();
+//	@Step("Open Downloads Page")
+//	public static void openDownloadsPage() {
+//		DiskPageWrapper.getDownloadsButton().click();
+//		DownloadsPageActions.waitTillDownloadsPageOpened();
+//	}
+
+	@Step("Move file to Files folder")
+	public static void moveToFilesPage(HtmlElement htmlElement) {
+		DownloadsPageActions.invokeContextMenuForLastFile(htmlElement);
+		DownloadsPageActions.clickMovingContextButton();
+		MovingPopUpActions.selectFileFolder();
+		MovingPopUpActions.clickMoveButton();
 	}
 
 
-	@Step("Fill user ID field")
-	public static void fillUserId(String username) {
-		LoginPageWrapper.getUserIdFieldLocator().sendKeys(username);
-	}
-
-	@Step("Fill user password field")
-	public static void fillUserPassword(String password) {
-		LoginPageWrapper.getUserPasswordFieldLocator().sendKeys(password);
-	}
 }
