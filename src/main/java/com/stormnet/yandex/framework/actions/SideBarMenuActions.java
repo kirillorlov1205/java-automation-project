@@ -1,15 +1,13 @@
 package com.stormnet.yandex.framework.actions;
 
 import com.stormnet.yandex.framework.actions.diskActions.DownloadsPageActions;
+import com.stormnet.yandex.framework.actions.diskActions.FilesPageActions;
+import com.stormnet.yandex.framework.driver.Waiter;
 import com.stormnet.yandex.framework.pageWrappers.SideBarMenuWrapper;
+import com.stormnet.yandex.framework.pageWrappers.diskWrappers.FilesPageWrapper;
 import io.qameta.allure.Step;
 
 public class SideBarMenuActions {
-
-	@Step("Open bucket page")
-	public static void selectBucketInSideBarMenu() {
-		SideBarMenuWrapper.getBucketFolderButtonInSideBarMenu();
-	}
 
 	@Step("Open downloads page")
 	public static void openDownloadsPage() {
@@ -19,6 +17,13 @@ public class SideBarMenuActions {
 
 	@Step("Open files page")
 	public static void openFilesPage() {
+		waitTillSideBarVisible(); // TODO: 11/9/2021 перенести
 		SideBarMenuWrapper.getFilesFolderButtonInSideBarMenu().click();
 	}
+
+	public static  void waitTillSideBarVisible() {
+		new Waiter().untilVisible(SideBarMenuWrapper.getFilesFolderButtonInSideBarMenu(),"Side bar invisible");
+	}
+
+
 }

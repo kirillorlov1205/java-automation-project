@@ -16,11 +16,12 @@ public class SideBarMenuWrapper {
 	}
 
 	public static Button getDownloadsFolderButtonInSideBarMenu() {
-		return new Button(UiDriver.getDriver(),DOWNLOADS_FOLDER_BUTTON_IN_SIDE_BAR_LOCATOR );
+		return new Button(UiDriver.getDriver(), DOWNLOADS_FOLDER_BUTTON_IN_SIDE_BAR_LOCATOR);
 	}
 
 	public static Button getFilesFolderButtonInSideBarMenu() {
-		return new Button(UiDriver.getDriver(),FILES_FOLDER_BUTTON_IN_SIDE_BAR_LOCATOR );
+		return new Button(UiDriver.getDriver(), FILES_FOLDER_BUTTON_IN_SIDE_BAR_LOCATOR);
 	}
+
 
 }

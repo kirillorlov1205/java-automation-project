@@ -4,8 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import javax.swing.text.html.HTML;
-
 public class HtmlElement {
 	protected WebDriver driver;
 	protected By locator;
@@ -19,7 +17,7 @@ public class HtmlElement {
 		return driver.findElement(locator);
 	}
 
-	public By getLocator(){
+	public By getLocator() {
 		return locator;
 	}
 

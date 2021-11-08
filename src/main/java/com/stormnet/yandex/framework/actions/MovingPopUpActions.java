@@ -8,7 +8,7 @@ public class MovingPopUpActions {
 
 	@Step("Select file folder in the Moving tree")
 	public static void selectFileFolder() {
-		new Waiter(5).untilVisible(MovingPopUpWrapper.getFirstFolderItem(), "Moving pop up hasn't been shown");
+		new Waiter().untilVisible(MovingPopUpWrapper.getFirstFolderItem(), "Moving pop up hasn't been shown");
 		MovingPopUpWrapper.getFirstFolderItem().click();
 	}
 

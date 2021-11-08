@@ -7,7 +7,7 @@ import com.stormnet.yandex.framework.pageWrappers.mailWrappers.MailPageWrapper;
 public class MailPageActions {
 
 	public static void waitMailPageOpened() {
-		new Waiter(10).untilInvisible(LoginPageWrapper.getUserPasswordFieldLocator(), "Mail page hasn't been opened");
+		new Waiter().untilInvisible(LoginPageWrapper.getUserPasswordFieldLocator(), "Mail page hasn't been opened");
 	}
 
 	public static void sendFileToDisk() {

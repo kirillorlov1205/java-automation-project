@@ -18,12 +18,12 @@ public class DownloadsPageActions {
 		ContextMenuWrapper.getMoveContextButton().click();
 	}
 
-//	public static void waitTillContextMenuOpened() {
-//		new Waiter(5).untilVisible(DownloadsPageWrapper.getMoveContextButton(),"Context Menu hasn't been shown");
-//	}
-//
-	public static void waitTillDownloadsPageOpened(){
-		new Waiter().untilVisible(DownloadsPageWrapper.getLastDownloadedFile(),"no");
+	public static void waitTillDownloadedFileShown() {
+		new Waiter().untilVisible(DownloadsPageWrapper.getLastDownloadedFile(), "Downloaded file hasn't been shown");
+	}
+
+	public static void waitTillDownloadsPageOpened() {
+		new Waiter().untilVisible(DownloadsPageWrapper.getDownloadsPageTitle(), "Downloaded file hasn't been shown");
 	}
 
 }

@@ -7,7 +7,7 @@ import com.stormnet.yandex.framework.pageWrappers.mailWrappers.MailPageWrapper;
 public class MailFormActions {
 
 	public static void fillRecipientField(String email) {
-		new Waiter(5).untilVisible(MailFormWrapper.getMailRecipientField(), "Mail form hasn't been opened");
+		new Waiter().untilVisible(MailFormWrapper.getMailRecipientField(), "Mail form hasn't been opened");
 		MailFormWrapper.getMailRecipientField().sendKeys(email);
 	}
 
@@ -39,9 +39,9 @@ public class MailFormActions {
 		fillTopicField(topic);
 		fileTextField(text);
 		attachFile(filePath);
-		new Waiter(5).untilInvisible(MailFormWrapper.getLoadingProgressBar(), "\"file hasn't been loaded\"");
+		new Waiter().untilInvisible(MailFormWrapper.getLoadingProgressBar(), "\"file hasn't been loaded\"");
 		submitSendingMail();
-		new Waiter(5).untilVisible(MailFormWrapper.getExitButton(), "Success pop-up hasn't been shown");
+		new Waiter().untilVisible(MailFormWrapper.getExitButton(), "Success pop-up hasn't been shown");
 		closeSuccessForm();
 	}
 
