@@ -1,6 +1,5 @@
 package com.stormnet.yandex.framework.actions;
 
-import com.stormnet.yandex.framework.driver.UiDriver;
 import com.stormnet.yandex.framework.driver.Waiter;
 import com.stormnet.yandex.framework.pageWrappers.MovingPopUpWrapper;
 import io.qameta.allure.Step;
@@ -9,7 +8,7 @@ public class MovingPopUpActions {
 
 	@Step("Select file folder in the Moving tree")
 	public static void selectFileFolder() {
-		new Waiter(5).untilVisible(MovingPopUpWrapper.getFirstFolderItem(),"Moving pop up hasn't been shown");
+		new Waiter(5).untilVisible(MovingPopUpWrapper.getFirstFolderItem(), "Moving pop up hasn't been shown");
 		MovingPopUpWrapper.getFirstFolderItem().click();
 	}
 
@@ -17,7 +16,5 @@ public class MovingPopUpActions {
 	public static void clickMoveButton() {
 		MovingPopUpWrapper.getMoveButton().click();
 	}
-
-
 
 }
