@@ -19,6 +19,6 @@ public class SideBarMenuActions {
 
 	@Step("Open files page")
 	public static void openFilesPage() {
-		SideBarMenuWrapper.getFilesFolderButtonInSideBarMenu();
+		SideBarMenuWrapper.getFilesFolderButtonInSideBarMenu().click();
 	}
 }

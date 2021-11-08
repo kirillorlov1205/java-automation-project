@@ -2,7 +2,9 @@ package com.stormnet.tests.yandex.mainTest;
 
 
 import com.stormnet.tests.yandex.AbstractTest;
-import com.stormnet.yandex.framework.actions.*;
+import com.stormnet.yandex.framework.actions.HeaderPanelActions;
+import com.stormnet.yandex.framework.actions.LoginPageActions;
+import com.stormnet.yandex.framework.actions.SideBarMenuActions;
 import com.stormnet.yandex.framework.actions.diskActions.DiskPageActions;
 import com.stormnet.yandex.framework.actions.mailActions.MailFormActions;
 import com.stormnet.yandex.framework.actions.mailActions.MailPageActions;
@@ -11,7 +13,6 @@ import com.stormnet.yandex.framework.pageWrappers.SideBarMenuWrapper;
 import com.stormnet.yandex.framework.pageWrappers.diskWrappers.DownloadsPageWrapper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
 public class MainTest extends AbstractTest {
@@ -38,11 +39,11 @@ public class MainTest extends AbstractTest {
 //		}
 
 		SideBarMenuActions.openFilesPage();
-
+//
 		WebElement testFileInFileFolder = UiDriver.getDriver().findElement(By.xpath("//span[text() = \"testFile\"]//ancestor::div[contains(@class,\"listing-item listing-item_theme_tile listing-item_size_m listing-item_type_file listing-item_selected js-prevent-deselect\")]"));
 		WebElement destinationLocator = SideBarMenuWrapper.getBucketFolderButtonInSideBarMenu().getElement();
-
-		Actions action = new Actions(UiDriver.getDriver());
-		action.dragAndDrop(testFileInFileFolder, destinationLocator).build().perform();
+//
+//		Actions action = new Actions(UiDriver.getDriver());
+//		action.dragAndDrop(testFileInFileFolder, destinationLocator).build().perform();
 	}
 }

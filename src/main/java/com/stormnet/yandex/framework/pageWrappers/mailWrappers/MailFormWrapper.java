@@ -10,7 +10,7 @@ public class MailFormWrapper {
 	private static final By MAIL_RECIPIENT_FIELD_LOCATOR = By.xpath("//div[@class=\"composeYabbles\"]");
 	private static final By MAIL_TOPIC_FIELD_LOCATOR = By.xpath("//input[@name=\"subject\"]");
 	private static final By MAIL_TEXT_FIELD_LOCATOR = By.xpath("//div[@id=\"cke_1_contents\"]/div");
-	private static final By ATTACHMENT_FIELD_LOCATOR = By.xpath("//input[@class=\"WithUpload-FileInput\"]");
+	private static final By ATTACHMENT_FIELD_LOCATOR = By.xpath("//input[contains(@class,\"WithUpload-FileInput qa-Compose-FileInput\")]");
 	private static final By SENDING_MAIL_BUTTON_LOCATOR = By.xpath("//button[contains(@class,\"Button2_view_default\")]");
 	private static final By LOADING_PROGRESS_BAR_LOCATION = By.xpath("//div[contains(@class,\"LoadingProgress__progress\")]");
 	private static final By EXIT_BUTTON_LOCATOR = By.xpath("//div[contains(@class,\"ComposeDoneScreen-Actions\")]");

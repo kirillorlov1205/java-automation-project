@@ -23,13 +23,7 @@ public class DownloadsPageActions {
 //	}
 //
 	public static void waitTillDownloadsPageOpened(){
-		new Waiter(5).untilVisible(DownloadsPageWrapper.getLastDownloadedFile(),"no");
+		new Waiter().untilVisible(DownloadsPageWrapper.getLastDownloadedFile(),"no");
 	}
-
-
-
-
-
-
 
 }
