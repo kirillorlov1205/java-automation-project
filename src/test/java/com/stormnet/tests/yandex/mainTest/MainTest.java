@@ -6,16 +6,10 @@ import com.stormnet.yandex.framework.actions.HeaderPanelActions;
 import com.stormnet.yandex.framework.actions.LoginPageActions;
 import com.stormnet.yandex.framework.actions.SideBarMenuActions;
 import com.stormnet.yandex.framework.actions.diskActions.DiskPageActions;
-import com.stormnet.yandex.framework.actions.diskActions.DownloadsPageActions;
 import com.stormnet.yandex.framework.actions.diskActions.FilesPageActions;
 import com.stormnet.yandex.framework.actions.mailActions.MailFormActions;
 import com.stormnet.yandex.framework.actions.mailActions.MailPageActions;
-import com.stormnet.yandex.framework.driver.UiDriver;
-import com.stormnet.yandex.framework.pageWrappers.SideBarMenuWrapper;
 import com.stormnet.yandex.framework.pageWrappers.diskWrappers.DownloadsPageWrapper;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
 public class MainTest extends AbstractTest {
@@ -33,11 +27,12 @@ public class MainTest extends AbstractTest {
 
 		SideBarMenuActions.openDownloadsPage();
 
-		DownloadsPageActions.moveDownloadedFileToFilesFolder(DownloadsPageWrapper.getLastDownloadedFile());
+		DiskPageActions.moveFileToFilesFolder(DownloadsPageWrapper.getLastDownloadedFile());
 
 		SideBarMenuActions.openFilesPage();
 
 		FilesPageActions.moveDownloadedFileToBin();
+
 
 	}
 }
