@@ -1,4 +1,4 @@
-package com.stormnet.tests.kufarTests;
+package com.stormnet.other.kufarTests;
 
 import com.stormnet.kufar.HeaderPanel;
 import com.stormnet.kufar.ProductsPage;

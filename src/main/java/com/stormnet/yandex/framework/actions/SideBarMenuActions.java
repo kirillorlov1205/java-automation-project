@@ -17,7 +17,7 @@ public class SideBarMenuActions {
 
 	@Step("Open files page")
 	public static void openFilesPage() {
-		waitTillSideBarVisible(); // TODO: 11/9/2021 перенести
+		waitTillSideBarVisible();
 		SideBarMenuWrapper.getFilesFolderButtonInSideBarMenu().click();
 	}
 

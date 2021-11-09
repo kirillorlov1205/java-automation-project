@@ -6,6 +6,7 @@ import com.stormnet.yandex.framework.actions.HeaderPanelActions;
 import com.stormnet.yandex.framework.actions.LoginPageActions;
 import com.stormnet.yandex.framework.actions.SideBarMenuActions;
 import com.stormnet.yandex.framework.actions.diskActions.DiskPageActions;
+import com.stormnet.yandex.framework.actions.diskActions.DownloadsPageActions;
 import com.stormnet.yandex.framework.actions.diskActions.FilesPageActions;
 import com.stormnet.yandex.framework.actions.mailActions.MailFormActions;
 import com.stormnet.yandex.framework.actions.mailActions.MailPageActions;
@@ -32,12 +33,11 @@ public class MainTest extends AbstractTest {
 
 		SideBarMenuActions.openDownloadsPage();
 
-		DiskPageActions.moveFileToFilesFolder(DownloadsPageWrapper.getLastDownloadedFile());
+		DownloadsPageActions.moveDownloadedFileToFilesFolder(DownloadsPageWrapper.getLastDownloadedFile());
 
 		SideBarMenuActions.openFilesPage();
 
 		FilesPageActions.moveDownloadedFileToBin();
-
 
 	}
 }

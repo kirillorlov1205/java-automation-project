@@ -1,4 +1,4 @@
-package com.stormnet.tests.kufarTests;
+package com.stormnet.other.kufarTests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Allure;

@@ -40,10 +40,10 @@ public class LoginPageActions {
 		openLoginPage();
 		clickOnLoginButton();
 		fillUserId(userName);
-		LoginPageWrapper.getLoginSubmitButton().click();
+		submitForm();
 		waitUsernameFormClosed();
 		fillUserPassword(password);
-		LoginPageWrapper.getLoginSubmitButton().click();
+		submitForm();
 		MailPageActions.waitMailPageOpened();
 	}
 
