@@ -11,12 +11,6 @@ import org.testng.annotations.BeforeMethod;
 import java.io.ByteArrayInputStream;
 
 public class AbstractTest {
-	protected UiDriver driver;
-
-	@BeforeMethod
-	public void setup() {
-
-	}
 
 	@AfterMethod
 	public void tearDown(ITestResult result) {
@@ -27,6 +21,6 @@ public class AbstractTest {
 	}
 
 	private byte[] takeScreenshotAs() {
-		return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+		return ((TakesScreenshot) UiDriver.getDriver()).getScreenshotAs(OutputType.BYTES);
 	}
 }

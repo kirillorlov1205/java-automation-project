@@ -8,7 +8,7 @@ public class UiDriver {
 	private static ThreadLocal<UiDriver> instance = new ThreadLocal<>();
 	private final WebDriver driver;
 
-	public UiDriver() {
+	private UiDriver() {
 		WebDriverManager.chromedriver().setup();
 		this.driver = new ChromeDriver();
 	}

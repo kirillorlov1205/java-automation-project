@@ -1,6 +1,5 @@
 package com.stormnet.tests.yandex.mainTest;
 
-
 import com.stormnet.tests.yandex.AbstractTest;
 import com.stormnet.yandex.framework.actions.HeaderPanelActions;
 import com.stormnet.yandex.framework.actions.LoginPageActions;
@@ -13,6 +12,9 @@ import com.stormnet.yandex.framework.pageWrappers.diskWrappers.DownloadsPageWrap
 import org.testng.annotations.Test;
 
 public class MainTest extends AbstractTest {
+
+	// TODO: 11/10/2021 i'll add logback
+	// TODO: 11/10/2021 перестали работать скриншоты при ошибке теста
 
 	@Test(testName = "Login to the system")
 	public void LoginTestRightCredentials() {
@@ -32,7 +34,6 @@ public class MainTest extends AbstractTest {
 		SideBarMenuActions.openFilesPage();
 
 		FilesPageActions.moveDownloadedFileToBin();
-
 
 	}
 }

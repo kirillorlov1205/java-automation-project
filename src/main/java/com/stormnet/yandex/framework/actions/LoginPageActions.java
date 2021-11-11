@@ -6,19 +6,21 @@ import com.stormnet.yandex.framework.pageWrappers.LoginPageWrapper;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class LoginPageActions {
+	private static final Logger logger = LoggerFactory.getLogger("logger");
 
 	@Step("Open Login Page")
 	public static void openLoginPage() {
 		UiDriver.getDriver().get("https://mail.yandex.com/");
 	}
 
-	@Step("")
+	@Step("Click on login button")
 	public static void clickOnLoginButton() {
 		LoginPageWrapper.getUserLoginButton().click();
 	}
-
 
 	@Step("Fill user ID field")
 	public static void fillUserId(String username) {
@@ -45,6 +47,7 @@ public class LoginPageActions {
 		fillUserPassword(password);
 		submitForm();
 		MailPageActions.waitMailPageOpened();
+		logger.info("User has been logged int");
 	}
 
 	@Step("Waiting till username form closed")
@@ -53,6 +56,7 @@ public class LoginPageActions {
 		wait.withMessage("ID field hasn't disappear")
 				.until(ExpectedConditions.invisibilityOf(LoginPageWrapper
 						.getUserIdFieldLocator().getElement()));
+		logger.info("username form closed");
 	}
 
 
