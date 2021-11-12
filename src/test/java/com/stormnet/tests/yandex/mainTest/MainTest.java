@@ -15,13 +15,17 @@ public class MainTest extends AbstractTest {
 
 	// TODO: 11/10/2021 i'll add logback
 	// TODO: 11/10/2021 перестали работать скриншоты при ошибке теста
+	// TODO: 11/12/2021 ne file class  + проверка что письмо пришло
+	// TODO: 11/12/2021 абстрактная страница  + вложить хедер класс + вложить сайдбар
 
 	@Test(testName = "Login to the system")
 	public void LoginTestRightCredentials() {
 		LoginPageActions.loginWithCreds("+375298812241", "Kirillorlov1997");
 
 		MailFormActions.sendMail("orlovkirilltest1205@yandex.by",
-				"Automation", "LetsAutomateThisCase", "D:\\stormDev\\AutomationProject\\src\\test\\resources\\testFile");
+				"Automation",
+				"LetsAutomateThisCase",
+				"D:\\stormDev\\AutomationProject\\src\\test\\resources\\testFile");
 
 		MailPageActions.sendFileToDisk();
 
