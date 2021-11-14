@@ -3,14 +3,12 @@ package com.stormnet.yandex.framework.actions;
 import com.stormnet.yandex.framework.actions.mailActions.MailPageActions;
 import com.stormnet.yandex.framework.driver.UiDriver;
 import com.stormnet.yandex.framework.pageWrappers.LoginPageWrapper;
+import com.stormnet.yandex.framework.utility.logerator.Logger;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class LoginPageActions {
-	private static final Logger logger = LoggerFactory.getLogger("logger");
 
 	@Step("Open Login Page")
 	public static void openLoginPage() {
@@ -47,7 +45,7 @@ public class LoginPageActions {
 		fillUserPassword(password);
 		submitForm();
 		MailPageActions.waitMailPageOpened();
-		logger.info("User has been logged int");
+		Logger.getLogger().info("User has been logged int");
 	}
 
 	@Step("Waiting till username form closed")
@@ -56,7 +54,7 @@ public class LoginPageActions {
 		wait.withMessage("ID field hasn't disappear")
 				.until(ExpectedConditions.invisibilityOf(LoginPageWrapper
 						.getUserIdFieldLocator().getElement()));
-		logger.info("username form closed");
+		Logger.getLogger().info("username form closed");
 	}
 
 

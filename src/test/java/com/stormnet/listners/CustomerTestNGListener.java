@@ -1,19 +1,24 @@
 package com.stormnet.listners;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.stormnet.yandex.framework.utility.logerator.Logger;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-import java.util.logging.LogManager;
-
 public class CustomerTestNGListener implements ITestListener {
 
-	private static final Logger logger = LoggerFactory.getLogger("legger");
+	@Override
+	public void onTestStart(ITestResult result) {
+		Logger.getLogger().debug("Test {} start", result.getTestName());
+	}
+
+	@Override
+	public void onTestSuccess(ITestResult result) {
+		Logger.getLogger().info("Test {} is finished with status: {}", result.getTestName(), result.getStatus());
+	}
 
 	@Override
 	public void onTestFailure(ITestResult result) {
-		logger.info("Test {}" + result.getTestName() + "finished with status: " + result.getStatus());
+		Logger.getLogger().error("Test {} finished with status: " + result.getStatus(), result.getThrowable());
 	}
 
 }

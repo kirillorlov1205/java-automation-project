@@ -3,6 +3,7 @@ package com.stormnet.yandex.framework.actions.mailActions;
 import com.stormnet.yandex.framework.driver.Waiter;
 import com.stormnet.yandex.framework.pageWrappers.mailWrappers.MailFormWrapper;
 import com.stormnet.yandex.framework.pageWrappers.mailWrappers.MailPageWrapper;
+import com.stormnet.yandex.framework.utility.logerator.Logger;
 
 public class MailFormActions {
 
@@ -43,6 +44,7 @@ public class MailFormActions {
 		submitSendingMail();
 		new Waiter().untilVisible(MailFormWrapper.getExitButton(), "Success pop-up hasn't been shown");
 		closeSuccessForm();
+		Logger.getLogger().info("The mail has been sent");
 	}
 
 
