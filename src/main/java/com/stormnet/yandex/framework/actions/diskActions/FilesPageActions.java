@@ -2,15 +2,14 @@ package com.stormnet.yandex.framework.actions.diskActions;
 
 import com.stormnet.yandex.framework.driver.UiDriver;
 import com.stormnet.yandex.framework.driver.Waiter;
-import com.stormnet.yandex.framework.pageWrappers.SideBarMenuWrapper;
-import com.stormnet.yandex.framework.pageWrappers.diskWrappers.FilesPageWrapper;
+import com.stormnet.yandex.framework.pageWrappers.diskWrappers.DiskPage;
 import io.qameta.allure.Step;
 import org.openqa.selenium.interactions.Actions;
 
-import static com.stormnet.yandex.framework.pageWrappers.diskWrappers.FilesPageWrapper.getBin;
-import static com.stormnet.yandex.framework.pageWrappers.diskWrappers.FilesPageWrapper.getDownloadedFile;
+import static com.stormnet.yandex.framework.pageWrappers.diskWrappers.FilesPage.getBin;
+import static com.stormnet.yandex.framework.pageWrappers.diskWrappers.FilesPage.getDownloadedFile;
 
-public class FilesPageActions {
+public class FilesPageActions extends DiskPageActions {
 
 	@Step("Move downloaded file to bin")
 	public static void moveDownloadedFileToBin() {
@@ -28,7 +27,7 @@ public class FilesPageActions {
 
 	@Step("Wait till Files Page has opened")
 	public static void waitTillFilesPageOpened() {
-		new Waiter().untilVisible(SideBarMenuWrapper.getFilesFolderButtonInSideBarMenu(), "Files page hasn't been opened");
+		new Waiter().untilVisible(DiskPage.DiskSideBarMenu.getFilesFolderButtonInSideBarMenu(), "Files page hasn't been opened");
 	}
 
 }

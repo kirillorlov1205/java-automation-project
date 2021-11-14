@@ -1,21 +1,20 @@
 package com.stormnet.tests.yandex.mainTest;
 
 import com.stormnet.tests.yandex.AbstractTest;
-import com.stormnet.yandex.framework.actions.HeaderPanelActions;
+import com.stormnet.yandex.framework.actions.AbstractPageActions;
 import com.stormnet.yandex.framework.actions.LoginPageActions;
-import com.stormnet.yandex.framework.actions.SideBarMenuActions;
 import com.stormnet.yandex.framework.actions.diskActions.DiskPageActions;
 import com.stormnet.yandex.framework.actions.diskActions.FilesPageActions;
 import com.stormnet.yandex.framework.actions.mailActions.MailFormActions;
 import com.stormnet.yandex.framework.actions.mailActions.MailPageActions;
-import com.stormnet.yandex.framework.pageWrappers.diskWrappers.DownloadsPageWrapper;
+import com.stormnet.yandex.framework.pageWrappers.diskWrappers.DownloadsPage;
 import org.testng.annotations.Test;
 
 public class MainTest extends AbstractTest {
 
 	// TODO: 11/10/2021 i'll add logback
 	// TODO: 11/10/2021 перестали работать скриншоты при ошибке теста
-	// TODO: 11/12/2021 ne file class  + проверка что письмо пришло
+	// TODO: 11/12/2021 new file class  + проверка что письмо пришло
 	// TODO: 11/12/2021 абстрактная страница  + вложить хедер класс + вложить сайдбар
 
 	@Test(testName = "Login to the system")
@@ -29,13 +28,13 @@ public class MainTest extends AbstractTest {
 
 		MailPageActions.sendFileToDisk();
 
-		HeaderPanelActions.openDiskPage();
+		AbstractPageActions.HeaderPanelActions.openDiskPage();
 
-		SideBarMenuActions.openDownloadsPage();
+		DiskPageActions.DiskSideBarMenuActions.openDownloadsPage();
 
-		DiskPageActions.moveFileToFilesFolder(DownloadsPageWrapper.getLastDownloadedFile());
+		DiskPageActions.moveFileToFilesFolder(DownloadsPage.getLastDownloadedFile());
 
-		SideBarMenuActions.openFilesPage();
+		DiskPageActions.DiskSideBarMenuActions.openFilesPage();
 
 		FilesPageActions.moveDownloadedFileToBin();
 

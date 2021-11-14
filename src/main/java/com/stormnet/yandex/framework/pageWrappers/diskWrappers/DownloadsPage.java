@@ -5,7 +5,7 @@ import com.stormnet.yandex.framework.elements.HtmlElement;
 import com.stormnet.yandex.framework.elements.Text;
 import org.openqa.selenium.By;
 
-public class DownloadsPageWrapper {
+public class DownloadsPage extends DiskPage{
 
 	private static final By LAST_DOWNLOADED_FILE_LOCATOR = By.xpath("//span[contains(@class,\"file-icon file-icon_size_m file-icon_text resource-icon-preview resource-icon-preview_theme_tile resource-icon-preview_size_m js-prevent-deselect\")]");
 	private static final By CLOSE_ECONOMY_TIME_POPUP_LOCATOR = By.xpath("\t//button[contains(@class,\"Button2 Button2_view_clear Button2_size_xs dialog__close\")]\n");

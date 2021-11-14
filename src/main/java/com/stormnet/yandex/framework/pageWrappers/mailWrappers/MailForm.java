@@ -6,7 +6,7 @@ import com.stormnet.yandex.framework.elements.HtmlElement;
 import com.stormnet.yandex.framework.elements.Input;
 import org.openqa.selenium.By;
 
-public class MailFormWrapper {
+public class MailForm {
 	private static final By MAIL_RECIPIENT_FIELD_LOCATOR = By.xpath("//div[@class=\"composeYabbles\"]");
 	private static final By MAIL_TOPIC_FIELD_LOCATOR = By.xpath("//input[@name=\"subject\"]");
 	private static final By MAIL_TEXT_FIELD_LOCATOR = By.xpath("//div[@id=\"cke_1_contents\"]/div");

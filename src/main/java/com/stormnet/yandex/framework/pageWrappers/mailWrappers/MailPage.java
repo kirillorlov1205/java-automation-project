@@ -4,7 +4,7 @@ import com.stormnet.yandex.framework.driver.UiDriver;
 import com.stormnet.yandex.framework.elements.Button;
 import org.openqa.selenium.By;
 
-public class MailPageWrapper {
+public class MailPage {
 	private static By WRITE_MAIL_BUTTON_LOCATOR = By.xpath("//div[@class=\"mail-ComposeButton-Wrap js-compose-button-container\"]/a");
 	private static By SEND_TO_DISK_BUTTON = By.xpath("//a[contains(@class,\"js-show-save-popup\")]");
 

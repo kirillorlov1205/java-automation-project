@@ -5,7 +5,7 @@ import com.stormnet.yandex.framework.elements.Button;
 import com.stormnet.yandex.framework.elements.Input;
 import org.openqa.selenium.By;
 
-public class LoginPageWrapper {
+public class LoginPage extends AbstractPage{
 	private static final By USER_ID_FIELD_LOCATOR = By.id("passp-field-login");
 	private static final By USER_PASSWORD_FIELD_LOCATOR = By.id("passp-field-passwd");
 	private static final By LOGIN_SUBMIT_BUTTON = By.id("passp:sign-in");
