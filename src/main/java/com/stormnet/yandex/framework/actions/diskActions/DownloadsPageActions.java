@@ -7,17 +7,18 @@ import com.stormnet.yandex.framework.driver.Waiter;
 import com.stormnet.yandex.framework.elements.HtmlElement;
 import com.stormnet.yandex.framework.pageWrappers.ContextMenu;
 import com.stormnet.yandex.framework.pageWrappers.diskWrappers.DownloadsPage;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 public class DownloadsPageActions extends DiskPageActions{
 
-	public static void invokeContextMenuForLastFile(HtmlElement htmlElement) {
+	public static void invokeContextMenuForLastFile(WebElement element) {
 		Actions actions = new Actions(UiDriver.getDriver());
-		actions.contextClick(htmlElement.getElement()).perform();
+		actions.contextClick(element).perform();
 	}
 
 	public static void waitTillDownloadedFileShown() {
-		new Waiter().untilVisible(DownloadsPage.getLastDownloadedFile(), "Downloaded file hasn't been shown");
+		new Waiter().untilVisible(DownloadsPage.getDownloadedFile(), "Downloaded file hasn't been shown");
 	}
 
 	public static void waitTillDownloadsPageOpened() {

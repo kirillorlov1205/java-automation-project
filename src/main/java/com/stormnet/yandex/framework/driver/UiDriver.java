@@ -22,6 +22,7 @@ public class UiDriver {
 		return instance.get().driver;
 	}
 
+
 	public static void closeDriver() {
 		getDriver().quit();
 		instance.set(null);
