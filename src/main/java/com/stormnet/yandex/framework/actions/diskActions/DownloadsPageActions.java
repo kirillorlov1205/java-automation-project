@@ -1,7 +1,5 @@
 package com.stormnet.yandex.framework.actions.diskActions;
 
-import com.stormnet.yandex.framework.actions.ContextMenuActions;
-import com.stormnet.yandex.framework.actions.MovingPopUpActions;
 import com.stormnet.yandex.framework.driver.UiDriver;
 import com.stormnet.yandex.framework.driver.Waiter;
 import com.stormnet.yandex.framework.pageWrappers.ContextMenu;
@@ -16,21 +14,16 @@ public class DownloadsPageActions extends DiskPageActions {
 		actions.contextClick(element).perform();
 	}
 
+	public static void clickMovingContextButton() {
+		ContextMenu.getMoveContextButton().click();
+	}
+
 	public static void waitTillDownloadedFileShown() {
 		new Waiter().untilVisible(DownloadsPage.getDownloadedFile(), "Downloaded file hasn't been shown");
 	}
 
 	public static void waitTillDownloadsPageOpened() {
 		new Waiter().untilVisible(DownloadsPage.getDownloadsPageTitle(), "Downloaded file hasn't been shown");
-	}
-
-	@Step("Move downloaded file to Files folder")
-	public static void moveDownloadedFileToFilesFolder(HtmlElement htmlElement) {
-		waitTillDownloadedFileShown();
-		invokeContextMenuForLastFile(htmlElement);
-		ContextMenuActions.clickMovingContextButton();
-		MovingPopUpActions.selectFileFolder();
-		MovingPopUpActions.clickMoveButton();
 	}
 
 }
