@@ -45,7 +45,7 @@ public class LoginPageActions extends AbstractPageActions {
 		fillUserPassword(password);
 		LoginPage.getLoginSubmitButton().click();
 		MailPageActions.waitMailPageOpened();
-		Logger.getLogger().info("User has been logged int");
+		Logger.getLogger().info("User has been logged in the system");
 	}
 
 	@Step("Waiting till username form closed")
@@ -54,7 +54,6 @@ public class LoginPageActions extends AbstractPageActions {
 		wait.withMessage("ID field hasn't disappear")
 				.until(ExpectedConditions.invisibilityOf(LoginPage
 						.getUserIdFieldLocator().getElement()));
-		Logger.getLogger().info("username form closed");
 	}
 
 

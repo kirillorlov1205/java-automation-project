@@ -26,6 +26,4 @@ public class FileManager {
 	public static File getFile(){
 		return file;
 	}
-
-
 }

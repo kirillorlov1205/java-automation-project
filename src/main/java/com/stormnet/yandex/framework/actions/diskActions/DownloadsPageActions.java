@@ -4,15 +4,14 @@ import com.stormnet.yandex.framework.actions.ContextMenuActions;
 import com.stormnet.yandex.framework.actions.MovingPopUpActions;
 import com.stormnet.yandex.framework.driver.UiDriver;
 import com.stormnet.yandex.framework.driver.Waiter;
-import com.stormnet.yandex.framework.elements.HtmlElement;
 import com.stormnet.yandex.framework.pageWrappers.ContextMenu;
 import com.stormnet.yandex.framework.pageWrappers.diskWrappers.DownloadsPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-public class DownloadsPageActions extends DiskPageActions{
+public class DownloadsPageActions extends DiskPageActions {
 
-	public static void invokeContextMenuForLastFile(WebElement element) {
+	public static void invokeContextMenuFile(WebElement element) {
 		Actions actions = new Actions(UiDriver.getDriver());
 		actions.contextClick(element).perform();
 	}

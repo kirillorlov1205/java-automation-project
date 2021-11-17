@@ -3,6 +3,8 @@ package com.stormnet.yandex.framework.actions.diskActions;
 import com.stormnet.yandex.framework.driver.UiDriver;
 import com.stormnet.yandex.framework.driver.Waiter;
 import com.stormnet.yandex.framework.pageWrappers.diskWrappers.DiskPage;
+import com.stormnet.yandex.framework.utility.fileManager.FileManager;
+import com.stormnet.yandex.framework.utility.logerator.Logger;
 import io.qameta.allure.Step;
 import org.openqa.selenium.interactions.Actions;
 
@@ -18,6 +20,7 @@ public class FilesPageActions extends DiskPageActions {
 		action.dragAndDrop(getDownloadedFile().getElement(), getBin().getElement())
 				.build()
 				.perform();
+		Logger.getLogger().info("File '{}' has been moved to bin", FileManager.getFile().getName());
 	}
 
 	@Step("Wait till downloaded File  has been shown")

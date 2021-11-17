@@ -4,6 +4,9 @@ import com.stormnet.yandex.framework.driver.UiDriver;
 import com.stormnet.yandex.framework.driver.Waiter;
 import com.stormnet.yandex.framework.pageWrappers.LoginPage;
 import com.stormnet.yandex.framework.pageWrappers.mailWrappers.MailPage;
+import com.stormnet.yandex.framework.utility.fileManager.FileManager;
+import com.stormnet.yandex.framework.utility.logerator.Logger;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -17,6 +20,7 @@ public class MailPageActions {
 		new Waiter().untilVisible(MailPage.getFileSentIndicator(), "file hasn't been sent");
 	}
 
+	@Step("Send File to disk")
 	public static void sendFileToDisk() {
 		String parentWindow = UiDriver.getDriver().getWindowHandle();
 		MailPage.getSendingToDiskButton().click();
@@ -25,6 +29,7 @@ public class MailPageActions {
 		WebElement button = UiDriver.getDriver().findElement(By.xpath("//button[contains(@class,\"tUmQfkSVYK0RxeWDEBvd4\")]"));
 		button.click();
 		UiDriver.getDriver().switchTo().window(parentWindow);
+		Logger.getLogger().info("File '{}' has been sent to disk", FileManager.getFile().getName());
 	}
 
 }

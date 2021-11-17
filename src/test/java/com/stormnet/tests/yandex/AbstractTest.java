@@ -14,7 +14,7 @@ public class AbstractTest {
 	@AfterMethod
 	public void tearDown(ITestResult result) {
 		if (!result.isSuccess()) {
-			Allure.attachment("attachment2.png", new ByteArrayInputStream(takeScreenshotAs()));
+			Allure.attachment("attachment.png", new ByteArrayInputStream(takeScreenshotAs()));
 		}
 		UiDriver.closeDriver();
 	}
