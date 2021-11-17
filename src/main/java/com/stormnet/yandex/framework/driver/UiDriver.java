@@ -12,6 +12,7 @@ public class UiDriver {
 	private UiDriver() {
 		WebDriverManager.chromedriver().setup();
 		this.driver = new ChromeDriver();
+		driver.manage().window().maximize();
 		Logger.getLogger().debug("Driver started");
 	}
 

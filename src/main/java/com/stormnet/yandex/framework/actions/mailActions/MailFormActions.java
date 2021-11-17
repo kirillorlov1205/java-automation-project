@@ -2,12 +2,9 @@ package com.stormnet.yandex.framework.actions.mailActions;
 
 import com.stormnet.yandex.framework.driver.UiDriver;
 import com.stormnet.yandex.framework.driver.Waiter;
-import com.stormnet.yandex.framework.elements.HtmlElement;
 import com.stormnet.yandex.framework.pageWrappers.mailWrappers.MailForm;
 import com.stormnet.yandex.framework.pageWrappers.mailWrappers.MailPage;
-import com.stormnet.yandex.framework.utility.fileManager.FileManager;
 import com.stormnet.yandex.framework.utility.logerator.Logger;
-import org.openqa.selenium.By;
 
 public class MailFormActions {
 
@@ -49,9 +46,8 @@ public class MailFormActions {
 		new Waiter().untilVisible(MailForm.getExitButton(), "Success pop-up hasn't been shown");
 		closeSuccessForm();
 		UiDriver.getDriver().navigate().refresh();
-		new Waiter(20).untilVisible((HtmlElement) UiDriver.getDriver().findElement(By.xpath("//span[text()=\"" + FileManager.getFile().getName() +"\"]")),"The mail page hasn't been refreshed");
+		new Waiter(20).untilVisible(MailPage.getMailAttachmentAreaWithLastDownloadedFile(), "The mail page hasn't been refreshed");
 		Logger.getLogger().info("The mail has been sent");
 	}
-
 
 }
