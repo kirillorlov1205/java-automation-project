@@ -1,4 +1,4 @@
-package com.stormnet.other.kufarTests;
+package com.stormnet.other.lesson23;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Allure;
@@ -34,4 +34,6 @@ public class AbstractTest {
 	public byte[] takeScreenshotAs() {
 		return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
 	}
+
+
 }
