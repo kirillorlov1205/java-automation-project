@@ -6,10 +6,6 @@ import com.stormnet.yandex.framework.driver.Waiter;
 import com.stormnet.yandex.framework.pageWrappers.LoginPage;
 import com.stormnet.yandex.framework.utility.logerator.Logger;
 import io.qameta.allure.Step;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 public class LoginPageActions extends AbstractPageActions {
 
@@ -44,18 +40,12 @@ public class LoginPageActions extends AbstractPageActions {
 		clickOnLoginButton();
 		fillUserId(userName);
 		submitForm();
-		waitUsernameFormClosed();
+		Waiter.untilInvisible(LoginPage
+				.getUserIdField(), "ID field hasn't disappear");
 		fillUserPassword(password);
 		submitForm();
 		MailPageActions.waitMailPageOpened();
 		Logger.getLogger().info("User has been logged in the system");
 	}
-
-	@Step("Waiting till username form closed")
-	public static void waitUsernameFormClosed() {
-		Waiter.untilInvisible(LoginPage
-				.getUserIdField(),"ID field hasn't disappear");
-	}
-
 
 }
