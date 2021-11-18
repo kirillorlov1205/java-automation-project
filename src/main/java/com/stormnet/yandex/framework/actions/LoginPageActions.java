@@ -35,7 +35,7 @@ public class LoginPageActions extends AbstractPageActions {
 	}
 
 	@Step("Login with credentials")
-	public static void loginWithCreds(String userName, String password) {
+	public static void loginWithValidCredentials(String userName, String password) {
 		openLoginPage();
 		clickOnLoginButton();
 		fillUserId(userName);

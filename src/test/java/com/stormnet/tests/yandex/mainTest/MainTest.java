@@ -13,7 +13,7 @@ public class MainTest extends AbstractTest {
 
 	@Test(testName = "Login to the system with right credentials")
 	public void LoginTestRightCredentials() {
-		LoginPageActions.loginWithCreds("+375298812241", "Kirillorlov1997");
+		LoginPageActions.loginWithValidCredentials("+375298812241", "Kirillorlov1997");
 
 		MailPageActions.MailFormActions.sendMail("orlovkirilltest1205@yandex.by",
 				"Automation",
