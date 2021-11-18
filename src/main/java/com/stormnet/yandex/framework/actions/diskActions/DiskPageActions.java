@@ -3,16 +3,16 @@ package com.stormnet.yandex.framework.actions.diskActions;
 import com.stormnet.yandex.framework.actions.AbstractPageActions;
 import com.stormnet.yandex.framework.actions.FileMovingPopUpActions;
 import com.stormnet.yandex.framework.driver.Waiter;
+import com.stormnet.yandex.framework.elements.HtmlElement;
 import com.stormnet.yandex.framework.pageWrappers.diskWrappers.DiskPage;
 import com.stormnet.yandex.framework.utility.fileManager.FileManager;
 import com.stormnet.yandex.framework.utility.logerator.Logger;
 import io.qameta.allure.Step;
-import org.openqa.selenium.WebElement;
 
 public class DiskPageActions extends AbstractPageActions {
 
 	@Step("Move file to Files folder")
-	public static void moveFileToFilesFolder(WebElement element) {
+	public static void moveFileToFilesFolder(HtmlElement element) {
 		DownloadsPageActions.waitTillDownloadedFileShown();
 		DownloadsPageActions.invokeContextMenuFile(element);
 		DownloadsPageActions.clickMovingContextButton();

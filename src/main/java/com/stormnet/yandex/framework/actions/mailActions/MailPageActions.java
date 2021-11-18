@@ -33,4 +33,50 @@ public class MailPageActions {
 		Logger.getLogger().info("File '{}' has been sent to disk", file.getName());
 	}
 
+	public static class MailFormActions {
+
+		public static void fillRecipientField(String email) {
+			Waiter.untilVisible(MailPage.MailForm.getMailRecipientField(), "Mail form hasn't been opened");
+			MailPage.MailForm.getMailRecipientField().sendKeys(email);
+		}
+
+		public static void fillTopicField(String topic) {
+			MailPage.MailForm.getMailTopicField().sendKeys(topic);
+		}
+
+
+		public static void fileTextField(String text) {
+			MailPage.MailForm.getMailTextAreaField().sendKeys(text);
+		}
+
+
+		public static void attachFile(String path) {
+			MailPage.MailForm.getAttachmentField().sendKeys(path);
+		}
+
+		public static void submitSendingMail() {
+			MailPage.MailForm.getSendMailButton().click();
+		}
+
+		public static void closeSuccessForm() {
+			MailPage.MailForm.getExitButton().click();
+		}
+
+		@Step("Send mail to myself with Topic, Text")
+		public static void sendMail(String recipient, String topic, String text, File file) {
+			MailPage.getWriteMailButton().click();
+			fillRecipientField(recipient);
+			fillTopicField(topic);
+			fileTextField(text);
+			attachFile(file.getAbsolutePath());
+			Waiter.untilInvisible(MailPage.MailForm.getLoadingProgressBar(), "\"file hasn't been loaded\"");
+			submitSendingMail();
+			Waiter.untilVisible(MailPage.MailForm.getExitButton(), "Success pop-up hasn't been shown");
+			closeSuccessForm();
+			UiDriver.getDriver().navigate().refresh();
+			Waiter.untilVisible(MailPage.getMailAttachmentAreaWithLastDownloadedFile(), "The mail page hasn't been refreshed");
+			Logger.getLogger().info("The mail has been sent with file '{}'", file.getName());
+		}
+
+	}
 }
