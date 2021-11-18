@@ -8,7 +8,7 @@ import java.time.Duration;
 
 public class Waiter {
 
-	private int defaultWaitTimeInSeconds = 20;
+	private int defaultWaitTimeInSeconds = 10;
 
 	public Waiter(int timeout) {
 		defaultWaitTimeInSeconds = timeout;
@@ -16,6 +16,10 @@ public class Waiter {
 
 	public Waiter() {
 	}
+
+//	public static WebDriverWait getWait(TIMEOUT timeInSeconds ) {
+//		return new WebDriverWait(UiDriver.getDriver(), Duration.ofSeconds(TEN_SEC));
+//	}
 
 	public void untilVisible(HtmlElement element, String message) {
 		new WebDriverWait(UiDriver.getDriver(), Duration.ofSeconds(defaultWaitTimeInSeconds))
@@ -34,6 +38,20 @@ public class Waiter {
 				.withMessage(message)
 				.until(ExpectedConditions.visibilityOfElementLocated(element.getLocator()));
 		UiDriver.getDriver().switchTo().frame(element.getElement());
+	}
+
+	public static enum TIMEOUT {
+		TEN_SEC(10),
+		TWENTY_SEC(20);
+
+		int seconds;
+
+		TIMEOUT(int seconds) {
+		}
+
+		public int getSeconds() {
+			return seconds;
+		}
 	}
 
 

@@ -4,9 +4,10 @@ import com.stormnet.yandex.framework.driver.UiDriver;
 import com.stormnet.yandex.framework.driver.Waiter;
 import com.stormnet.yandex.framework.pageWrappers.mailWrappers.MailForm;
 import com.stormnet.yandex.framework.pageWrappers.mailWrappers.MailPage;
-import com.stormnet.yandex.framework.utility.fileManager.FileManager;
 import com.stormnet.yandex.framework.utility.logerator.Logger;
 import io.qameta.allure.Step;
+
+import java.io.File;
 
 public class MailFormActions {
 
@@ -38,19 +39,19 @@ public class MailFormActions {
 	}
 
 	@Step("Send mail to myself with Topic, Text")
-	public static void sendMail(String recipient, String topic, String text, String filePath) {
+	public static void sendMail(String recipient, String topic, String text, File file) {
 		MailPage.getWriteMailButton().click();
 		fillRecipientField(recipient);
 		fillTopicField(topic);
 		fileTextField(text);
-		attachFile(filePath);
+		attachFile(file.getAbsolutePath());
 		new Waiter().untilInvisible(MailForm.getLoadingProgressBar(), "\"file hasn't been loaded\"");
 		submitSendingMail();
 		new Waiter().untilVisible(MailForm.getExitButton(), "Success pop-up hasn't been shown");
 		closeSuccessForm();
 		UiDriver.getDriver().navigate().refresh();
-		new Waiter(20).untilVisible(MailPage.getMailAttachmentAreaWithLastDownloadedFile(), "The mail page hasn't been refreshed");
-		Logger.getLogger().info("The mail has been sent with file '{}'", FileManager.getFile().getName());
+		new Waiter().untilVisible(MailPage.getMailAttachmentAreaWithLastDownloadedFile(), "The mail page hasn't been refreshed");
+		Logger.getLogger().info("The mail has been sent with file '{}'", file.getName());
 	}
 
 }

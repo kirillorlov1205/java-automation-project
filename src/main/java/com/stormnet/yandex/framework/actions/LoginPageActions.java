@@ -2,11 +2,14 @@ package com.stormnet.yandex.framework.actions;
 
 import com.stormnet.yandex.framework.actions.mailActions.MailPageActions;
 import com.stormnet.yandex.framework.driver.UiDriver;
+import com.stormnet.yandex.framework.driver.Waiter;
 import com.stormnet.yandex.framework.pageWrappers.LoginPage;
 import com.stormnet.yandex.framework.utility.logerator.Logger;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class LoginPageActions extends AbstractPageActions {
 
@@ -22,12 +25,12 @@ public class LoginPageActions extends AbstractPageActions {
 
 	@Step("Fill user ID field")
 	public static void fillUserId(String username) {
-		LoginPage.getUserIdFieldLocator().sendKeys(username);
+		LoginPage.getUserIdField().sendKeys(username);
 	}
 
 	@Step("Fill user password field")
 	public static void fillUserPassword(String password) {
-		LoginPage.getUserPasswordFieldLocator().sendKeys(password);
+		LoginPage.getUserPasswordField().sendKeys(password);
 	}
 
 	@Step("Submit Login form")
@@ -40,20 +43,18 @@ public class LoginPageActions extends AbstractPageActions {
 		openLoginPage();
 		clickOnLoginButton();
 		fillUserId(userName);
-		LoginPage.getLoginSubmitButton().click();
+		submitForm();
 		waitUsernameFormClosed();
 		fillUserPassword(password);
-		LoginPage.getLoginSubmitButton().click();
+		submitForm();
 		MailPageActions.waitMailPageOpened();
 		Logger.getLogger().info("User has been logged in the system");
 	}
 
 	@Step("Waiting till username form closed")
 	public static void waitUsernameFormClosed() {
-		WebDriverWait wait = new WebDriverWait(UiDriver.getDriver(), 5);
-		wait.withMessage("ID field hasn't disappear")
-				.until(ExpectedConditions.invisibilityOf(LoginPage
-						.getUserIdFieldLocator().getElement()));
+		new Waiter().untilInvisible(LoginPage
+				.getUserIdField(),"ID field hasn't disappear");
 	}
 
 

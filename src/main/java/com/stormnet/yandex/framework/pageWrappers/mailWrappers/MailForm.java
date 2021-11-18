@@ -7,13 +7,13 @@ import com.stormnet.yandex.framework.elements.Input;
 import org.openqa.selenium.By;
 
 public class MailForm {
-	private static final By MAIL_RECIPIENT_FIELD_LOCATOR = By.xpath("//div[@class=\"composeYabbles\"]");
+	private static final By MAIL_RECIPIENT_FIELD_LOCATOR = By.cssSelector("div.composeYabbles");
 	private static final By MAIL_TOPIC_FIELD_LOCATOR = By.xpath("//input[@name=\"subject\"]");
 	private static final By MAIL_TEXT_FIELD_LOCATOR = By.xpath("//div[@id=\"cke_1_contents\"]/div");
-	private static final By ATTACHMENT_FIELD_LOCATOR = By.xpath("//input[contains(@class,\"WithUpload-FileInput qa-Compose-FileInput\")]");
-	private static final By SENDING_MAIL_BUTTON_LOCATOR = By.xpath("//button[contains(@class,\"Button2_view_default\")]");
+	private static final By ATTACHMENT_FIELD_LOCATOR = By.cssSelector("input.qa-Compose-FileInput");
+	private static final By SENDING_MAIL_BUTTON_LOCATOR = By.cssSelector("button.Button2_view_default");
 	private static final By LOADING_PROGRESS_BAR_LOCATION = By.xpath("//div[contains(@class,\"LoadingProgress__progress\")]");
-	private static final By EXIT_BUTTON_LOCATOR = By.xpath("//div[contains(@class,\"ComposeDoneScreen-Actions\")]");
+	private static final By EXIT_BUTTON_LOCATOR = By.cssSelector("div.ComposeDoneScreen-Actions");
 
 
 	public static Input getMailRecipientField() {

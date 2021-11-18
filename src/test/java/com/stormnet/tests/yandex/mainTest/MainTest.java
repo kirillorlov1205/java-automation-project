@@ -8,7 +8,6 @@ import com.stormnet.yandex.framework.actions.diskActions.FilesPageActions;
 import com.stormnet.yandex.framework.actions.mailActions.MailFormActions;
 import com.stormnet.yandex.framework.actions.mailActions.MailPageActions;
 import com.stormnet.yandex.framework.pageWrappers.diskWrappers.DownloadsPage;
-import com.stormnet.yandex.framework.utility.fileManager.FileManager;
 import org.testng.annotations.Test;
 
 public class MainTest extends AbstractTest {
@@ -20,12 +19,12 @@ public class MainTest extends AbstractTest {
 		MailFormActions.sendMail("orlovkirilltest1205@yandex.by",
 				"Automation",
 				"LetsAutomateThisCase",
-				FileManager.getFile().getAbsolutePath());
+				file);
 
-		MailPageActions.sendFileToDisk();
+		MailPageActions.sendFileToDisk(file);
 
 		AbstractPageActions.HeaderPanelActions.openDiskPage();
-
+//
 		DiskPageActions.DiskSideBarMenuActions.openDownloadsPage();
 
 		DiskPageActions.moveFileToFilesFolder(DownloadsPage.getDownloadedFile().getElement());

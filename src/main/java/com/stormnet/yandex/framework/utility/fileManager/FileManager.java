@@ -7,23 +7,24 @@ import static java.util.UUID.randomUUID;
 
 public class FileManager {
 
-	private static final File file = new File(generateFile());
+	public static String fileName = generateFileName().concat(".txt");
 
-	public static String generateFile() {
-		File file = new File(generateFileName().concat(".txt"));
+	public static File generateFile() {
+		File file = new File(fileName);
 		try {
 			file.createNewFile();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return file.getPath();
+		return file;
 	}
 
 	public static String generateFileName() {
 		return randomUUID().toString().replaceAll("-", "").substring(0, 5);
 	}
 
-	public static File getFile(){
-		return file;
+	public static String getFileName(){
+		return fileName;
 	}
+
 }

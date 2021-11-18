@@ -18,7 +18,7 @@ public class DiskPageActions extends AbstractPageActions {
 		DownloadsPageActions.clickMovingContextButton();
 		FileMovingPopUpActions.selectFileFolder();
 		FileMovingPopUpActions.clickMoveButton();
-		Logger.getLogger().info("File '{}' has been moved to files folder", FileManager.getFile().getName());
+		Logger.getLogger().info("File '{}' has been moved to files folder", FileManager.getFileName());
 	}
 
 	public static class DiskSideBarMenuActions {

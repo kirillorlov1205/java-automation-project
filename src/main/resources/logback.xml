@@ -14,7 +14,7 @@
     </appender>
 
     <appender name="FILE" class="ch.qos.logback.classic.sift.SiftingAppender">
-        <discriminator class="utility.logerator.ThreadNameBasedDiscriminator"/>
+        <discriminator class="com.stormnet.yandex.framework.utility.logerator.ThreadNameBasedDiscriminator"/>
         <sift>
             <appender class="ch.qos.logback.core.FileAppender">
                 <file>logs/app-${threadName}.log</file>

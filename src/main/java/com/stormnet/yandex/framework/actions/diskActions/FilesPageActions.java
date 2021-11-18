@@ -20,7 +20,7 @@ public class FilesPageActions extends DiskPageActions {
 		action.dragAndDrop(getDownloadedFile().getElement(), getBin().getElement())
 				.build()
 				.perform();
-		Logger.getLogger().info("File '{}' has been moved to bin", FileManager.getFile().getName());
+		Logger.getLogger().info("File '{}' has been moved to bin", FileManager.getFileName());
 	}
 
 	@Step("Wait till downloaded File  has been shown")
