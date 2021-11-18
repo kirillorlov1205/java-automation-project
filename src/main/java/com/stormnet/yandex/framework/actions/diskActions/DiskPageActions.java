@@ -39,7 +39,7 @@ public class DiskPageActions extends AbstractPageActions {
 		}
 
 		public static void waitTillSideBarVisible() {
-			new Waiter().untilVisible(DiskPage.DiskSideBarMenu.getFilesFolderButtonInSideBarMenu(), "Side bar invisible");
+			Waiter.untilVisible(DiskPage.DiskSideBarMenu.getFilesFolderButtonInSideBarMenu(), "Side bar invisible");
 		}
 	}
 

@@ -12,7 +12,7 @@ import java.io.File;
 public class MailFormActions {
 
 	public static void fillRecipientField(String email) {
-		new Waiter().untilVisible(MailForm.getMailRecipientField(), "Mail form hasn't been opened");
+		Waiter.untilVisible(MailForm.getMailRecipientField(), "Mail form hasn't been opened");
 		MailForm.getMailRecipientField().sendKeys(email);
 	}
 
@@ -45,12 +45,12 @@ public class MailFormActions {
 		fillTopicField(topic);
 		fileTextField(text);
 		attachFile(file.getAbsolutePath());
-		new Waiter().untilInvisible(MailForm.getLoadingProgressBar(), "\"file hasn't been loaded\"");
+		Waiter.untilInvisible(MailForm.getLoadingProgressBar(), "\"file hasn't been loaded\"");
 		submitSendingMail();
-		new Waiter().untilVisible(MailForm.getExitButton(), "Success pop-up hasn't been shown");
+		Waiter.untilVisible(MailForm.getExitButton(), "Success pop-up hasn't been shown");
 		closeSuccessForm();
 		UiDriver.getDriver().navigate().refresh();
-		new Waiter().untilVisible(MailPage.getMailAttachmentAreaWithLastDownloadedFile(), "The mail page hasn't been refreshed");
+		Waiter.untilVisible(MailPage.getMailAttachmentAreaWithLastDownloadedFile(), "The mail page hasn't been refreshed");
 		Logger.getLogger().info("The mail has been sent with file '{}'", file.getName());
 	}
 

@@ -53,7 +53,7 @@ public class LoginPageActions extends AbstractPageActions {
 
 	@Step("Waiting till username form closed")
 	public static void waitUsernameFormClosed() {
-		new Waiter().untilInvisible(LoginPage
+		Waiter.untilInvisible(LoginPage
 				.getUserIdField(),"ID field hasn't disappear");
 	}
 

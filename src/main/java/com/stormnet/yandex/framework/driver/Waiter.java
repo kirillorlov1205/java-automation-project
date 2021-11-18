@@ -8,33 +8,24 @@ import java.time.Duration;
 
 public class Waiter {
 
-	private int defaultWaitTimeInSeconds = 10;
-
-	public Waiter(int timeout) {
-		defaultWaitTimeInSeconds = timeout;
+	public static WebDriverWait getWait(TIMEOUT timeInSeconds) {
+		return new WebDriverWait(UiDriver.getDriver(), Duration.ofSeconds(timeInSeconds.seconds));
 	}
 
-	public Waiter() {
-	}
-
-//	public static WebDriverWait getWait(TIMEOUT timeInSeconds ) {
-//		return new WebDriverWait(UiDriver.getDriver(), Duration.ofSeconds(TEN_SEC));
-//	}
-
-	public void untilVisible(HtmlElement element, String message) {
-		new WebDriverWait(UiDriver.getDriver(), Duration.ofSeconds(defaultWaitTimeInSeconds))
+	public static void untilVisible(HtmlElement element, String message) {
+		getWait(TIMEOUT.TEN_SEC)
 				.withMessage(message)
 				.until(ExpectedConditions.visibilityOfElementLocated(element.getLocator()));
 	}
 
-	public void untilInvisible(HtmlElement element, String message) {
-		new WebDriverWait(UiDriver.getDriver(), Duration.ofSeconds(defaultWaitTimeInSeconds))
+	public static void untilInvisible(HtmlElement element, String message) {
+		getWait(TIMEOUT.TEN_SEC)
 				.withMessage(message)
 				.until(ExpectedConditions.invisibilityOfElementLocated(element.getLocator()));
 	}
 
-	public void waitFrameToBeAvailableAndSwitch(HtmlElement element, String message) {
-		new WebDriverWait(UiDriver.getDriver(), Duration.ofSeconds(defaultWaitTimeInSeconds))
+	public static void waitFrameToBeAvailableAndSwitch(HtmlElement element, String message) {
+		getWait(TIMEOUT.TEN_SEC)
 				.withMessage(message)
 				.until(ExpectedConditions.visibilityOfElementLocated(element.getLocator()));
 		UiDriver.getDriver().switchTo().frame(element.getElement());
@@ -47,6 +38,7 @@ public class Waiter {
 		int seconds;
 
 		TIMEOUT(int seconds) {
+			this.seconds = seconds;
 		}
 
 		public int getSeconds() {

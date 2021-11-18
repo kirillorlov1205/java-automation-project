@@ -14,18 +14,18 @@ import java.io.File;
 public class MailPageActions {
 
 	public static void waitMailPageOpened() {
-		new Waiter().untilInvisible(LoginPage.getUserPasswordField(), "Mail page hasn't been opened");
+		Waiter.untilInvisible(LoginPage.getUserPasswordField(), "Mail page hasn't been opened");
 	}
 
 	public static void waitFileSent() {
-		new Waiter().untilVisible(MailPage.getFileSentIndicator(), "file hasn't been sent");
+		Waiter.untilVisible(MailPage.getFileSentIndicator(), "file hasn't been sent");
 	}
 
 	@Step("Send File to disk")
 	public static void sendFileToDisk(File file) {
 		String parentWindow = UiDriver.getDriver().getWindowHandle();
 		MailPage.getSendingToDiskButton().click();
-		new Waiter().waitFrameToBeAvailableAndSwitch(MailPage.getFileSentIframe(), "Frame hasn't been shown");
+		Waiter.waitFrameToBeAvailableAndSwitch(MailPage.getFileSentIframe(), "Frame hasn't been shown");
 		MailPageActions.waitFileSent();
 		WebElement button = UiDriver.getDriver().findElement(By.xpath("//button[contains(@class,\"tUmQfkSVYK0RxeWDEBvd4\")]"));
 		button.click();

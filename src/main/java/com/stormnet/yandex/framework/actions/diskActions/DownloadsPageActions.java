@@ -19,11 +19,11 @@ public class DownloadsPageActions extends DiskPageActions {
 	}
 
 	public static void waitTillDownloadedFileShown() {
-		new Waiter().untilVisible(DownloadsPage.getDownloadedFile(), "Downloaded file hasn't been shown");
+		Waiter.untilVisible(DownloadsPage.getDownloadedFile(), "Downloaded file hasn't been shown");
 	}
 
 	public static void waitTillDownloadsPageOpened() {
-		new Waiter().untilVisible(DownloadsPage.getDownloadsPageTitle(), "Downloaded file hasn't been shown");
+		Waiter.untilVisible(DownloadsPage.getDownloadsPageTitle(), "Downloaded file hasn't been shown");
 	}
 
 }

@@ -25,12 +25,12 @@ public class FilesPageActions extends DiskPageActions {
 
 	@Step("Wait till downloaded File  has been shown")
 	public static void waitTillDownloadedFileShown() {
-		new Waiter().untilVisible(getDownloadedFile(), "Downloaded file hasn't been shown");
+		Waiter.untilVisible(getDownloadedFile(), "Downloaded file hasn't been shown");
 	}
 
 	@Step("Wait till Files Page has opened")
 	public static void waitTillFilesPageOpened() {
-		new Waiter().untilVisible(DiskPage.DiskSideBarMenu.getFilesFolderButtonInSideBarMenu(), "Files page hasn't been opened");
+		Waiter.untilVisible(DiskPage.DiskSideBarMenu.getFilesFolderButtonInSideBarMenu(), "Files page hasn't been opened");
 	}
 
 }
