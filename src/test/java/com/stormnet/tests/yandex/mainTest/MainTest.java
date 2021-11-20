@@ -6,7 +6,6 @@ import com.stormnet.yandex.framework.actions.LoginPageActions;
 import com.stormnet.yandex.framework.actions.diskActions.DiskPageActions;
 import com.stormnet.yandex.framework.actions.diskActions.FilesPageActions;
 import com.stormnet.yandex.framework.actions.mailActions.MailPageActions;
-import com.stormnet.yandex.framework.pageWrappers.diskWrappers.DownloadsPage;
 import org.testng.annotations.Test;
 
 public class MainTest extends AbstractTest {
@@ -26,11 +25,10 @@ public class MainTest extends AbstractTest {
 //
 		DiskPageActions.DiskSideBarMenuActions.openDownloadsPage();
 
-		DiskPageActions.moveFileToFilesFolder(DownloadsPage.getDownloadedFile());
+		DiskPageActions.moveFileToFilesFolder(file.getName());
 
 		DiskPageActions.DiskSideBarMenuActions.openFilesPage();
 
-		FilesPageActions.moveDownloadedFileToBin();
-
+		FilesPageActions.moveDownloadedFileToBin(file.getName());
 	}
 }

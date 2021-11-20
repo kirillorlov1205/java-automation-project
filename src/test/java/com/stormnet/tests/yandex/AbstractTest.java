@@ -15,6 +15,7 @@ import java.io.File;
 public class AbstractTest {
 
 	public File file;
+
 	@BeforeMethod
 	public void start (ITestResult result) {
 		file = FileManager.generateFile();
@@ -24,8 +25,9 @@ public class AbstractTest {
 	public void tearDown(ITestResult result) {
 		if (!result.isSuccess()) {
 			Allure.attachment("attachment.png", new ByteArrayInputStream(takeScreenshotAs()));
+		}else {
+			file.delete();
 		}
-		file.delete();
 		UiDriver.closeDriver();
 	}
 

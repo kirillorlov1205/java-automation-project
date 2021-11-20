@@ -7,10 +7,8 @@ import static java.util.UUID.randomUUID;
 
 public class FileManager {
 
-	public static String fileName = generateFileName().concat(".txt");
-
 	public static File generateFile() {
-		File file = new File(fileName);
+		File file = new File(generateFileName());
 		try {
 			file.createNewFile();
 		} catch (IOException e) {
@@ -21,10 +19,6 @@ public class FileManager {
 
 	public static String generateFileName() {
 		return randomUUID().toString().replaceAll("-", "").substring(0, 5);
-	}
-
-	public static String getFileName(){
-		return fileName;
 	}
 
 }

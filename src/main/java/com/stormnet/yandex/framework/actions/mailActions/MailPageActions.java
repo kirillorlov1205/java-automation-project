@@ -74,7 +74,7 @@ public class MailPageActions {
 			Waiter.untilVisible(MailPage.MailForm.getExitButton(), "Success pop-up hasn't been shown");
 			closeSuccessForm();
 			UiDriver.getDriver().navigate().refresh();
-			Waiter.untilVisible(MailPage.getMailAttachmentAreaWithLastDownloadedFile(), "The mail page hasn't been refreshed");
+			Waiter.untilVisible(MailPage.getMailAttachmentAreaWithFile(file.getName()), "The mail page hasn't been refreshed");
 			Logger.getLogger().info("The mail has been sent with file '{}'", file.getName());
 		}
 

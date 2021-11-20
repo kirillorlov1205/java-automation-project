@@ -12,13 +12,13 @@ import io.qameta.allure.Step;
 public class DiskPageActions extends AbstractPageActions {
 
 	@Step("Move file to Files folder")
-	public static void moveFileToFilesFolder(HtmlElement element) {
-		DownloadsPageActions.waitTillDownloadedFileShown();
-		DownloadsPageActions.invokeContextMenuFile(element);
+	public static void moveFileToFilesFolder(String fileName) {
+		DownloadsPageActions.waitTillDownloadedFileShown(fileName);
+		DownloadsPageActions.invokeContextMenuFile(fileName);
 		DownloadsPageActions.clickMovingContextButton();
 		FileMovingPopUpActions.selectFileFolder();
 		FileMovingPopUpActions.clickMoveButton();
-		Logger.getLogger().info("File '{}' has been moved to files folder", FileManager.getFileName());
+		Logger.getLogger().info("File '{}' has been moved to files folder", fileName);
 	}
 
 	public static class DiskSideBarMenuActions {

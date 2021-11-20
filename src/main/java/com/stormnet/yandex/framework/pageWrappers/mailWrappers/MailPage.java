@@ -10,7 +10,7 @@ import org.openqa.selenium.By;
 public class MailPage {
 	private static By WRITE_MAIL_BUTTON_LOCATOR = By.cssSelector("div.js-compose-button-container > a");
 	private static By SEND_TO_DISK_BUTTON = By.xpath("//a[contains(@class,\"js-show-save-popup\")]");
-	private static By MAIL_ATTACHMENT_AREA_WITH_DOWNLOADED_FILE = By.xpath("//div[contains(@class,\"mail-MessageSnippet-Item_attachmentsFiles\")]//span[text()=\"" + FileManager.getFileName() + "\"]");
+	private static String MAIL_ATTACHMENT_AREA_WITH_DOWNLOADED_FILE = "//div[contains(@class,\"mail-MessageSnippet-Item_attachmentsFiles\")]//span[text()=\"%s\"]";
 	private static By FILE_SENT_IFRAME_LOCATOR = By.xpath("//iframe[contains(@class,\"disk-widget-save\")]");
 	private static By FILE_SENT_INDICATOR_LOCATOR = By.xpath("//a[contains(@class,\"_3abtIQJyoTF5bvw5BqN3g8\")]");
 
@@ -19,8 +19,9 @@ public class MailPage {
 		return new Button(UiDriver.getDriver(), WRITE_MAIL_BUTTON_LOCATOR);
 	}
 
-	public static HtmlElement getMailAttachmentAreaWithLastDownloadedFile() {
-		return new HtmlElement(UiDriver.getDriver(), MAIL_ATTACHMENT_AREA_WITH_DOWNLOADED_FILE);
+	public static HtmlElement getMailAttachmentAreaWithFile(String fileName) {
+		By locator = By.xpath(String.format(MAIL_ATTACHMENT_AREA_WITH_DOWNLOADED_FILE, fileName));
+		return new HtmlElement(UiDriver.getDriver(), locator);
 	}
 
 	public static Button getSendingToDiskButton() {

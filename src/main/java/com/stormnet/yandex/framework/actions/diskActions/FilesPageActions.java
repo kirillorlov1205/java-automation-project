@@ -9,23 +9,23 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.interactions.Actions;
 
 import static com.stormnet.yandex.framework.pageWrappers.diskWrappers.FilesPage.getBin;
-import static com.stormnet.yandex.framework.pageWrappers.diskWrappers.FilesPage.getDownloadedFile;
+import static com.stormnet.yandex.framework.pageWrappers.diskWrappers.FilesPage.getDownloadedFileName;
 
 public class FilesPageActions extends DiskPageActions {
 
 	@Step("Move downloaded file to bin")
-	public static void moveDownloadedFileToBin() {
-		waitTillDownloadedFileShown();
+	public static void moveDownloadedFileToBin(String fileName) {
+		waitTillDownloadedFileShown(fileName);
 		Actions action = new Actions(UiDriver.getDriver());
-		action.dragAndDrop(getDownloadedFile().getElement(), getBin().getElement())
+		action.dragAndDrop(getDownloadedFileName(fileName).getElement(), getBin().getElement())
 				.build()
 				.perform();
-		Logger.getLogger().info("File '{}' has been moved to bin", FileManager.getFileName());
+		Logger.getLogger().info("File '{}' has been moved to bin", fileName);
 	}
 
 	@Step("Wait till downloaded File  has been shown")
-	public static void waitTillDownloadedFileShown() {
-		Waiter.untilVisible(getDownloadedFile(), "Downloaded file hasn't been shown");
+	public static void waitTillDownloadedFileShown(String fileName) {
+		Waiter.untilVisible(getDownloadedFileName(fileName), "Downloaded file hasn't been shown");
 	}
 
 	@Step("Wait till Files Page has opened")
