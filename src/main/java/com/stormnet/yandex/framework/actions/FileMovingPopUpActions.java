@@ -12,9 +12,4 @@ public class FileMovingPopUpActions {
 		FileMovingPopUp.getFirstFolderItem().click();
 	}
 
-	@Step("Click on Move Button")
-	public static void clickMoveButton() {
-		FileMovingPopUp.getMoveButton().click();
-	}
-
 }

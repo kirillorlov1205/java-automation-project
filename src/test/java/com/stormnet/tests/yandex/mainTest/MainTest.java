@@ -22,13 +22,13 @@ public class MainTest extends AbstractTest {
 		MailPageActions.sendFileToDisk(file);
 
 		AbstractPageActions.HeaderPanelActions.openDiskPage();
-//
+
 		DiskPageActions.DiskSideBarMenuActions.openDownloadsPage();
 
-		DiskPageActions.moveFileToFilesFolder(file.getName());
+		DiskPageActions.moveFileToFilesFolder(file);
 
 		DiskPageActions.DiskSideBarMenuActions.openFilesPage();
 
-		FilesPageActions.moveDownloadedFileToBin(file.getName());
+		FilesPageActions.moveDownloadedFileToBin(file);
 	}
 }

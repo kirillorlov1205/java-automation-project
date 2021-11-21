@@ -2,19 +2,19 @@ package com.stormnet.yandex.framework.actions.mailActions;
 
 import com.stormnet.yandex.framework.driver.UiDriver;
 import com.stormnet.yandex.framework.driver.Waiter;
-import com.stormnet.yandex.framework.pageWrappers.LoginPage;
 import com.stormnet.yandex.framework.pageWrappers.mailWrappers.MailPage;
 import com.stormnet.yandex.framework.utility.logerator.Logger;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
 import java.io.File;
 
 public class MailPageActions {
 
 	public static void waitMailPageOpened() {
-		Waiter.untilInvisible(LoginPage.getUserPasswordField(), "Mail page hasn't been opened");
+		Waiter.untilVisible(MailPage.getWriteMailButton(), "Mail page hasn't been opened");
 	}
 
 	public static void waitFileSent() {
@@ -27,6 +27,8 @@ public class MailPageActions {
 		MailPage.getSendingToDiskButton().click();
 		Waiter.waitFrameToBeAvailableAndSwitch(MailPage.getFileSentIframe(), "Frame hasn't been shown");
 		MailPageActions.waitFileSent();
+
+		Assert.assertTrue(MailPage.getFileSentIndicator().isDisplayed(), "file hasn't been sent");
 		WebElement button = UiDriver.getDriver().findElement(By.xpath("//button[contains(@class,\"tUmQfkSVYK0RxeWDEBvd4\")]"));
 		button.click();
 		UiDriver.getDriver().switchTo().window(parentWindow);
@@ -75,6 +77,7 @@ public class MailPageActions {
 			closeSuccessForm();
 			UiDriver.getDriver().navigate().refresh();
 			Waiter.untilVisible(MailPage.getMailAttachmentAreaWithFile(file.getName()), "The mail page hasn't been refreshed");
+			Assert.assertTrue(MailPage.getMailAttachmentAreaWithFile(file.getName()).isDisplayed(), "The mail hasn't been sent or the page not fully refreshed");
 			Logger.getLogger().info("The mail has been sent with file '{}'", file.getName());
 		}
 

@@ -4,8 +4,10 @@ import com.stormnet.yandex.framework.actions.mailActions.MailPageActions;
 import com.stormnet.yandex.framework.driver.UiDriver;
 import com.stormnet.yandex.framework.driver.Waiter;
 import com.stormnet.yandex.framework.pageWrappers.LoginPage;
+import com.stormnet.yandex.framework.pageWrappers.mailWrappers.MailPage;
 import com.stormnet.yandex.framework.utility.logerator.Logger;
 import io.qameta.allure.Step;
+import org.testng.Assert;
 
 public class LoginPageActions extends AbstractPageActions {
 
@@ -45,6 +47,7 @@ public class LoginPageActions extends AbstractPageActions {
 		fillUserPassword(password);
 		submitForm();
 		MailPageActions.waitMailPageOpened();
+		Assert.assertTrue(MailPage.getWriteMailButton().isDisplayed(), "Mail page hasn't been opened");
 		Logger.getLogger().info("User has been logged in the system");
 	}
 

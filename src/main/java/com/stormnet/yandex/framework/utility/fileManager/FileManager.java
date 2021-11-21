@@ -8,7 +8,7 @@ import static java.util.UUID.randomUUID;
 public class FileManager {
 
 	public static File generateFile() {
-		File file = new File(generateFileName());
+		File file = new File(generateFileName().concat(".txt"));
 		try {
 			file.createNewFile();
 		} catch (IOException e) {

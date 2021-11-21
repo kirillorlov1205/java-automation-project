@@ -4,7 +4,6 @@ import com.stormnet.yandex.framework.driver.UiDriver;
 import com.stormnet.yandex.framework.elements.Button;
 import com.stormnet.yandex.framework.elements.HtmlElement;
 import com.stormnet.yandex.framework.elements.Input;
-import com.stormnet.yandex.framework.utility.fileManager.FileManager;
 import org.openqa.selenium.By;
 
 public class MailPage {
