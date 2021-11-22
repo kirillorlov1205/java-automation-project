@@ -21,12 +21,8 @@ public class HtmlElement {
 		return locator;
 	}
 
-	public boolean isDisplayed(){
+	public boolean isDisplayed() {
 		return this.getElement().isDisplayed();
-	}
-
-	public boolean isNotDisplayed(){
-		return !this.getElement().isDisplayed();
 	}
 
 

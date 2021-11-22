@@ -16,11 +16,6 @@ public class LoginPageActions extends AbstractPageActions {
 		UiDriver.getDriver().get("https://mail.yandex.com/");
 	}
 
-	@Step("Click on login button")
-	public static void clickOnLoginButton() {
-		LoginPage.getUserLoginButton().click();
-	}
-
 	@Step("Fill user ID field")
 	public static void fillUserId(String username) {
 		LoginPage.getUserIdField().sendKeys(username);
@@ -39,7 +34,7 @@ public class LoginPageActions extends AbstractPageActions {
 	@Step("Login with credentials")
 	public static void loginWithValidCredentials(String userName, String password) {
 		openLoginPage();
-		clickOnLoginButton();
+		LoginPage.getUserLoginButton().click();
 		fillUserId(userName);
 		submitForm();
 		Waiter.untilInvisible(LoginPage
