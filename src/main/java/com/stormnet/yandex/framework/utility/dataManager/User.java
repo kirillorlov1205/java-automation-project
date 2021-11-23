@@ -1,17 +1,17 @@
-package com.stormnet.yandex.framework.dataWrappers;
+package com.stormnet.yandex.framework.utility.dataManager;
 
 public class User {
 
-	 private String userName;
+	 private String login;
 	 private String password;
 
 	 public User(String userName, String password){
-	 	this.userName = userName;
+	 	this.login = userName;
 	 	this.password = password;
 	 }
 
-	 public String getUserName(){
-	 	return userName;
+	 public String getLogin(){
+	 	return login;
 	 }
 
 	 public String getPassword(){

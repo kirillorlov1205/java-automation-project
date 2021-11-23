@@ -5,6 +5,7 @@ import com.stormnet.yandex.framework.driver.UiDriver;
 import com.stormnet.yandex.framework.driver.Waiter;
 import com.stormnet.yandex.framework.pageWrappers.LoginPage;
 import com.stormnet.yandex.framework.pageWrappers.mailWrappers.MailPage;
+import com.stormnet.yandex.framework.utility.dataManager.User;
 import com.stormnet.yandex.framework.utility.logerator.Logger;
 import io.qameta.allure.Step;
 import org.testng.Assert;
@@ -32,14 +33,14 @@ public class LoginPageActions extends AbstractPageActions {
 	}
 
 	@Step("Login with credentials")
-	public static void loginWithValidCredentials(String userName, String password) {
+	public static void loginWithValidCredentials(User user) {
 		openLoginPage();
 		LoginPage.getUserLoginButton().click();
-		fillUserId(userName);
+		fillUserId(user.getLogin());
 		submitForm();
 		Waiter.untilInvisible(LoginPage
 				.getUserIdField(), "ID field hasn't disappear");
-		fillUserPassword(password);
+		fillUserPassword(user.getPassword());
 		submitForm();
 		MailPageActions.waitMailPageOpened();
 		Assert.assertTrue(MailPage.getWriteMailButton().isDisplayed(), "Mail page hasn't been opened");
