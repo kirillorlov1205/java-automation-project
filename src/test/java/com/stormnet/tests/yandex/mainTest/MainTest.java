@@ -6,8 +6,8 @@ import com.stormnet.yandex.framework.actions.LoginPageActions;
 import com.stormnet.yandex.framework.actions.diskActions.DiskPageActions;
 import com.stormnet.yandex.framework.actions.diskActions.FilesPageActions;
 import com.stormnet.yandex.framework.actions.mailActions.MailPageActions;
-import com.stormnet.yandex.framework.utility.dataManager.DataManager;
 import com.stormnet.yandex.framework.utility.dataManager.User;
+import com.stormnet.yandex.framework.utility.dataManager.UserManager;
 import org.testng.annotations.Test;
 
 public class MainTest extends AbstractTest {
@@ -15,7 +15,7 @@ public class MainTest extends AbstractTest {
 	@Test(testName = "Login to the system with right credentials")
 	public void LoginTestRightCredentials() {
 
-		User user1 = DataManager.getUser();
+		User user1 = UserManager.getUserByIndex(0);
 
 		LoginPageActions.loginWithValidCredentials(user1);
 

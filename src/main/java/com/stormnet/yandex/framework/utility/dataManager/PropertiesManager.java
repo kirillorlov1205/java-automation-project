@@ -25,12 +25,12 @@ public class PropertiesManager {
 		}
 	}
 
-	public static String getProperty(String key){
+	public static String getProperty(String key) {
 		String property = System.getenv(key);
-		if (property == null){
+		if (property == null) {
 			property = props.getProperty(key);
 		}
-		Logger.getLogger().debug("Return value {} for property key {}", property,key);
+		Logger.getLogger().debug("Return value {} for property key {}", property, key);
 		return property;
 	}
 
